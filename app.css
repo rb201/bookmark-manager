@@ -71,6 +71,28 @@ body {
 .section-bookmarks {
     display: flex;
     flex-wrap: wrap;
+    gap: 2em;
+}
+
+.bookmark {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+
+}
+
+.bookmark-top {
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.bookmark-icon {
+    height: 30px;
+    width: 30px;
+}
+
+.bookmark-submenu {
+
 }
 
 .menu {
