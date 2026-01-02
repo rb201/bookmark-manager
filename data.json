@@ -1,4 +1,5 @@
-[
+{
+  "data": [
   {
     "id": "unique-id-1",
     "title": "Frontend Mentor",
@@ -649,4 +650,4 @@
     "isArchived": false,
     "imgUrl": "https://www.google.com/s2/favicons?domain=www.typescriptlang.org&sz=128"
   }
-]
+]}
