@@ -3,7 +3,7 @@
   {
     "id": "unique-id-1",
     "title": "Frontend Mentor",
-    "url": "https://www.frontendmentor.io/",
+    "url": "frontendmentor.io/",
     "description": "Improve your coding skills by building real projects.",
     "tags": ["coding", "challenge", "frontend"],
     "dateAdded": "2025-01-01T12:00:00Z",
@@ -16,7 +16,7 @@
   {
     "id": "unique-id-2",
     "title": "GitHub",
-    "url": "https://github.com",
+    "url": "github.com",
     "description": "Where the world builds software.",
     "tags": ["git", "code", "version-control"],
     "dateAdded": "2025-02-15T09:00:00Z",
@@ -29,7 +29,7 @@
   {
     "id": "unique-id-3",
     "title": "MDN Web Docs",
-    "url": "https://developer.mozilla.org",
+    "url": "developer.mozilla.org",
     "description": "Resources for developers, by developers.",
     "tags": ["docs", "javascript", "html", "css"],
     "dateAdded": "2024-11-20T15:00:00Z",
@@ -42,7 +42,7 @@
   {
     "id": "unique-id-4",
     "title": "Stack Overflow",
-    "url": "https://stackoverflow.com",
+    "url": "stackoverflow.com",
     "description": "Where developers learn, share, & build careers.",
     "tags": ["programming", "questions", "community"],
     "dateAdded": "2024-10-05T10:30:00Z",
@@ -55,7 +55,7 @@
   {
     "id": "unique-id-5",
     "title": "YouTube",
-    "url": "https://www.youtube.com",
+    "url": "youtube.com",
     "description": "Watch, upload, and share videos.",
     "tags": ["video", "entertainment", "tutorials"],
     "dateAdded": "2024-09-12T14:00:00Z",
@@ -68,7 +68,7 @@
   {
     "id": "unique-id-6",
     "title": "Reddit",
-    "url": "https://www.reddit.com",
+    "url": "reddit.com",
     "description": "The front page of the internet.",
     "tags": ["social", "news", "community"],
     "dateAdded": "2025-03-10T11:00:00Z",
@@ -81,7 +81,7 @@
   {
     "id": "unique-id-7",
     "title": "Dribbble",
-    "url": "https://dribbble.com",
+    "url": "dribbble.com",
     "description": "Show and tell for designers.",
     "tags": ["design", "inspiration", "ui"],
     "dateAdded": "2024-12-01T09:45:00Z",
@@ -94,7 +94,7 @@
   {
     "id": "unique-id-8",
     "title": "Awwwards",
-    "url": "https://www.awwwards.com",
+    "url": "awwwards.com",
     "description": "The awards for design, creativity and innovation on the Internet.",
     "tags": ["design", "awards", "web"],
     "dateAdded": "2025-04-22T16:20:00Z",
@@ -107,7 +107,7 @@
   {
     "id": "unique-id-9",
     "title": "CodePen",
-    "url": "https://codepen.io",
+    "url": "codepen.io",
     "description": "Front-end playground & code sharing.",
     "tags": ["code", "demo", "frontend"],
     "dateAdded": "2024-08-18T13:00:00Z",
@@ -120,7 +120,7 @@
   {
     "id": "unique-id-10",
     "title": "CSS-Tricks",
-    "url": "https://css-tricks.com",
+    "url": "css-tricks.com",
     "description": "Tips, tricks, and techniques on CSS.",
     "tags": ["css", "tutorials", "webdev"],
     "dateAdded": "2025-05-07T10:15:00Z",
@@ -133,7 +133,7 @@
   {
     "id": "unique-id-11",
     "title": "Figma",
-    "url": "https://www.figma.com",
+    "url": "figma.com",
     "description": "Collaborative interface design tool.",
     "tags": ["design", "ui", "prototype"],
     "dateAdded": "2024-07-30T12:00:00Z",
@@ -146,7 +146,7 @@
   {
     "id": "unique-id-12",
     "title": "Notion",
-    "url": "https://www.notion.so",
+    "url": "notion.so",
     "description": "All-in-one workspace for notes and tasks.",
     "tags": ["productivity", "notes", "organization"],
     "dateAdded": "2025-06-14T08:30:00Z",
@@ -159,7 +159,7 @@
   {
     "id": "unique-id-13",
     "title": "Vercel",
-    "url": "https://vercel.com",
+    "url": "vercel.com",
     "description": "Deploy web projects with ease.",
     "tags": ["hosting", "deployment", "nextjs"],
     "dateAdded": "2024-11-11T17:00:00Z",
@@ -172,7 +172,7 @@
   {
     "id": "unique-id-14",
     "title": "Tailwind CSS",
-    "url": "https://tailwindcss.com",
+    "url": "tailwindcss.com",
     "description": "Utility-first CSS framework.",
     "tags": ["css", "framework", "ui"],
     "dateAdded": "2025-01-25T14:45:00Z",
@@ -185,7 +185,7 @@
   {
     "id": "unique-id-15",
     "title": "React",
-    "url": "https://react.dev",
+    "url": "react.dev",
     "description": "A JavaScript library for building user interfaces.",
     "tags": ["javascript", "library", "frontend"],
     "dateAdded": "2024-10-20T11:30:00Z",
@@ -198,7 +198,7 @@
   {
     "id": "unique-id-16",
     "title": "Netflix",
-    "url": "https://www.netflix.com",
+    "url": "netflix.com",
     "description": "Stream TV shows and movies.",
     "tags": ["entertainment", "streaming", "video"],
     "dateAdded": "2025-07-03T20:00:00Z",
@@ -211,7 +211,7 @@
   {
     "id": "unique-id-17",
     "title": "Spotify",
-    "url": "https://open.spotify.com",
+    "url": "open.spotify.com",
     "description": "Music streaming service.",
     "tags": ["music", "audio", "streaming"],
     "dateAdded": "2024-09-25T10:00:00Z",
@@ -224,7 +224,7 @@
   {
     "id": "unique-id-18",
     "title": "Unsplash",
-    "url": "https://unsplash.com",
+    "url": "unsplash.com",
     "description": "Free high-resolution photos.",
     "tags": ["images", "stock", "photography"],
     "dateAdded": "2025-02-28T13:20:00Z",
@@ -237,7 +237,7 @@
   {
     "id": "unique-id-19",
     "title": "Canva",
-    "url": "https://www.canva.com",
+    "url": "canva.com",
     "description": "Graphic design platform.",
     "tags": ["design", "graphics", "tools"],
     "dateAdded": "2024-12-15T15:30:00Z",
@@ -250,7 +250,7 @@
   {
     "id": "unique-id-20",
     "title": "Dev.to",
-    "url": "https://dev.to",
+    "url": "dev.to",
     "description": "Community for developers.",
     "tags": ["blog", "community", "webdev"],
     "dateAdded": "2025-08-10T09:00:00Z",
@@ -263,7 +263,7 @@
   {
     "id": "unique-id-21",
     "title": "Smashing Magazine",
-    "url": "https://www.smashingmagazine.com",
+    "url": "smashingmagazine.com",
     "description": "For web designers and developers.",
     "tags": ["articles", "design", "webdev"],
     "dateAdded": "2024-11-05T12:45:00Z",
@@ -276,7 +276,7 @@
   {
     "id": "unique-id-22",
     "title": "Google Fonts",
-    "url": "https://fonts.google.com",
+    "url": "fonts.google.com",
     "description": "Free web fonts library.",
     "tags": ["fonts", "typography", "design"],
     "dateAdded": "2025-03-18T14:00:00Z",
@@ -289,7 +289,7 @@
   {
     "id": "unique-id-23",
     "title": "npm",
-    "url": "https://www.npmjs.com",
+    "url": "npmjs.com",
     "description": "JavaScript package manager.",
     "tags": ["javascript", "packages", "node"],
     "dateAdded": "2024-10-10T11:00:00Z",
@@ -302,7 +302,7 @@
   {
     "id": "unique-id-24",
     "title": "VS Code",
-    "url": "https://code.visualstudio.com",
+    "url": "code.visualstudio.com",
     "description": "Code editor redefined.",
     "tags": ["editor", "ide", "development"],
     "dateAdded": "2025-09-20T10:30:00Z",
@@ -315,7 +315,7 @@
   {
     "id": "unique-id-25",
     "title": "Hacker News",
-    "url": "https://news.ycombinator.com",
+    "url": "news.ycombinator.com",
     "description": "News for hackers.",
     "tags": ["news", "tech", "startup"],
     "dateAdded": "2024-08-25T16:45:00Z",
@@ -328,7 +328,7 @@
   {
     "id": "unique-id-26",
     "title": "Behance",
-    "url": "https://www.behance.net",
+    "url": "behance.net",
     "description": "Showcase & discover creative work.",
     "tags": ["design", "portfolio", "inspiration"],
     "dateAdded": "2025-04-05T13:15:00Z",
@@ -341,7 +341,7 @@
   {
     "id": "unique-id-27",
     "title": "Product Hunt",
-    "url": "https://www.producthunt.com",
+    "url": "producthunt.com",
     "description": "Discover new products.",
     "tags": ["startup", "products", "tech"],
     "dateAdded": "2024-12-20T09:30:00Z",
@@ -354,7 +354,7 @@
   {
     "id": "unique-id-28",
     "title": "LinkedIn",
-    "url": "https://www.linkedin.com",
+    "url": "linkedin.com",
     "description": "Professional networking.",
     "tags": ["career", "networking", "jobs"],
     "dateAdded": "2025-05-12T12:00:00Z",
@@ -367,7 +367,7 @@
   {
     "id": "unique-id-29",
     "title": "Twitter / X",
-    "url": "https://x.com",
+    "url": "x.com",
     "description": "Social media platform.",
     "tags": ["social", "news", "microblogging"],
     "dateAdded": "2024-11-30T15:20:00Z",
@@ -380,7 +380,7 @@
   {
     "id": "unique-id-30",
     "title": "Wikipedia",
-    "url": "https://www.wikipedia.org",
+    "url": "wikipedia.org",
     "description": "Free encyclopedia.",
     "tags": ["knowledge", "reference", "education"],
     "dateAdded": "2025-06-20T11:45:00Z",
@@ -393,7 +393,7 @@
   {
     "id": "unique-id-31",
     "title": "Khan Academy",
-    "url": "https://www.khanacademy.org",
+    "url": "khanacademy.org",
     "description": "Free online courses.",
     "tags": ["education", "learning", "courses"],
     "dateAdded": "2024-10-15T14:30:00Z",
@@ -406,7 +406,7 @@
   {
     "id": "unique-id-32",
     "title": "Coursera",
-    "url": "https://www.coursera.org",
+    "url": "coursera.org",
     "description": "Online courses from universities.",
     "tags": ["education", "courses", "certificates"],
     "dateAdded": "2025-07-25T10:00:00Z",
@@ -419,7 +419,7 @@
   {
     "id": "unique-id-33",
     "title": "Trello",
-    "url": "https://trello.com",
+    "url": "trello.com",
     "description": "Project management tool.",
     "tags": ["productivity", "tasks", "boards"],
     "dateAdded": "2024-09-05T16:15:00Z",
@@ -432,7 +432,7 @@
   {
     "id": "unique-id-34",
     "title": "Slack",
-    "url": "https://slack.com",
+    "url": "slack.com",
     "description": "Team communication platform.",
     "tags": ["communication", "team", "chat"],
     "dateAdded": "2025-08-30T12:30:00Z",
@@ -445,7 +445,7 @@
   {
     "id": "unique-id-35",
     "title": "Zoom",
-    "url": "https://zoom.us",
+    "url": "zoom.us",
     "description": "Video conferencing.",
     "tags": ["video", "meetings", "remote"],
     "dateAdded": "2024-12-10T14:00:00Z",
@@ -458,7 +458,7 @@
   {
     "id": "unique-id-36",
     "title": "Adobe XD",
-    "url": "https://www.adobe.com/products/xd.html",
+    "url": "adobe.com/products/xd.html",
     "description": "UI/UX design tool.",
     "tags": ["design", "prototype", "adobe"],
     "dateAdded": "2025-01-15T13:45:00Z",
@@ -471,7 +471,7 @@
   {
     "id": "unique-id-37",
     "title": "Framer",
-    "url": "https://www.framer.com",
+    "url": "framer.com",
     "description": "Interactive design tool.",
     "tags": ["design", "prototype", "web"],
     "dateAdded": "2024-11-25T11:00:00Z",
@@ -484,7 +484,7 @@
   {
     "id": "unique-id-38",
     "title": "Webflow",
-    "url": "https://webflow.com",
+    "url": "webflow.com",
     "description": "No-code website builder.",
     "tags": ["web", "design", "nocode"],
     "dateAdded": "2025-02-10T15:30:00Z",
@@ -497,7 +497,7 @@
   {
     "id": "unique-id-39",
     "title": "Svelte",
-    "url": "https://svelte.dev",
+    "url": "svelte.dev",
     "description": "Cybernetically enhanced web apps.",
     "tags": ["framework", "javascript", "frontend"],
     "dateAdded": "2024-10-30T09:15:00Z",
@@ -510,7 +510,7 @@
   {
     "id": "unique-id-40",
     "title": "Next.js",
-    "url": "https://nextjs.org",
+    "url": "nextjs.org",
     "description": "React framework for production.",
     "tags": ["react", "framework", "ssr"],
     "dateAdded": "2025-03-05T10:45:00Z",
@@ -523,7 +523,7 @@
   {
     "id": "unique-id-41",
     "title": "Node.js",
-    "url": "https://nodejs.org",
+    "url": "nodejs.org",
     "description": "JavaScript runtime.",
     "tags": ["javascript", "backend", "server"],
     "dateAdded": "2024-09-15T12:20:00Z",
@@ -536,7 +536,7 @@
   {
     "id": "unique-id-42",
     "title": "Docker",
-    "url": "https://www.docker.com",
+    "url": "docker.com",
     "description": "Container platform.",
     "tags": ["devops", "containers", "deployment"],
     "dateAdded": "2025-04-15T14:15:00Z",
@@ -549,7 +549,7 @@
   {
     "id": "unique-id-43",
     "title": "AWS",
-    "url": "https://aws.amazon.com",
+    "url": "aws.amazon.com",
     "description": "Cloud computing services.",
     "tags": ["cloud", "hosting", "infrastructure"],
     "dateAdded": "2024-08-05T16:00:00Z",
@@ -562,7 +562,7 @@
   {
     "id": "unique-id-44",
     "title": "DigitalOcean",
-    "url": "https://www.digitalocean.com",
+    "url": "digitalocean.com",
     "description": "Cloud infrastructure provider.",
     "tags": ["cloud", "hosting", "servers"],
     "dateAdded": "2025-05-20T11:30:00Z",
@@ -575,7 +575,7 @@
   {
     "id": "unique-id-45",
     "title": "Heroku",
-    "url": "https://www.heroku.com",
+    "url": "heroku.com",
     "description": "Platform as a service.",
     "tags": ["paas", "deployment", "hosting"],
     "dateAdded": "2024-07-10T13:00:00Z",
@@ -588,7 +588,7 @@
   {
     "id": "unique-id-46",
     "title": "Firebase",
-    "url": "https://firebase.google.com",
+    "url": "firebase.google.com",
     "description": "Backend services by Google.",
     "tags": ["backend", "database", "google"],
     "dateAdded": "2025-06-05T15:45:00Z",
@@ -601,7 +601,7 @@
   {
     "id": "unique-id-47",
     "title": "Supabase",
-    "url": "https://supabase.com",
+    "url": "supabase.com",
     "description": "Open-source Firebase alternative.",
     "tags": ["backend", "database", "postgres"],
     "dateAdded": "2024-12-25T10:30:00Z",
@@ -614,7 +614,7 @@
   {
     "id": "unique-id-48",
     "title": "Postman",
-    "url": "https://www.postman.com",
+    "url": "postman.com",
     "description": "API development platform.",
     "tags": ["api", "testing", "tools"],
     "dateAdded": "2025-01-10T12:15:00Z",
@@ -627,7 +627,7 @@
   {
     "id": "unique-id-49",
     "title": "GraphQL",
-    "url": "https://graphql.org",
+    "url": "graphql.org",
     "description": "Query language for APIs.",
     "tags": ["api", "graphql", "data"],
     "dateAdded": "2024-11-15T14:45:00Z",
@@ -640,7 +640,7 @@
   {
     "id": "unique-id-50",
     "title": "TypeScript",
-    "url": "https://www.typescriptlang.org",
+    "url": "typescriptlang.org",
     "description": "Typed superset of JavaScript.",
     "tags": ["javascript", "types", "language"],
     "dateAdded": "2025-02-20T09:00:00Z",
