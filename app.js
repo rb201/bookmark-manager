@@ -17,50 +17,70 @@ async function loadBookmarks() {
 
     const data = await res.json()
 
-    console.log(data)
+    // console.log(data)
     renderBookmarks(data)
 }
 
+// Create <div class="bookmark-top">
 function buildBookmarkTopSection(data) {
-    // // Create the <div class="bookmark"> element
-    // let newDivBookmarkEl = document.createElement('div')
-    // newDivBookmarkEl.classList.add('bookmark')
+    let bookmarkTopEl = document.createElement('div')
+    bookmarkTopEl.classList.add('bookmark-top')
+
+    // Nested in bookmark-top
+    let bookmarkInfoEl = document.createElement('div')
+    bookmarkInfoEl.classList.add('bookmark-info')
     
-    // Create <div class="bookmark-top">
-    let newDivBookmarkTopEl = document.createElement('div')
-    newDivBookmarkTopEl.classList.add('bookmark-top')
+    // Nested in bookmark-info
+    let imgEl = document.createElement('img')
+    imgEl.classList.add("bookmark-icon")
+    imgEl.src = data.imgUrl
     
-    // El nested in bookmark-top
-    let newImgEl = document.createElement('img')
-    newImgEl.classList.add("bookmark-icon")
-    newImgEl.src = data.imgUrl
-    
+    // Nested in bookmark-info
     let newDivInBookmarkTopEl = document.createElement('div')
-    let newTitleEl = document.createElement('p')
-    newTitleEl.classList.add("bookmark-title")
-    newTitleEl.innerText = data.title
+    let titleEl = document.createElement('p')
+    titleEl.classList.add("bookmark-title")
+    titleEl.innerText = data.title
     
-    let newURLEl = document.createElement('p')
-    newURLEl.classList.add("bookmark-url")
-    newURLEl.innerText = data.url
+    let urlEl = document.createElement('p')
+    urlEl.classList.add("bookmark-url")
+    urlEl.innerText = data.url
     
-    newDivInBookmarkTopEl.append(newTitleEl, newURLEl)
-    
+    newDivInBookmarkTopEl.append(titleEl, urlEl)
+    bookmarkInfoEl.append(imgEl, newDivInBookmarkTopEl)
+
     let newButtonSubMenu = document.createElement('button')
     newButtonSubMenu.classList.add('bookmark-submenu')
     newButtonSubMenu.type = "button"
     newButtonSubMenu.innerText = "|"
     
-    newDivBookmarkTopEl.append(newImgEl, newDivInBookmarkTopEl, newButtonSubMenu)
+    bookmarkTopEl.append(bookmarkInfoEl, newButtonSubMenu)
     
-    // newDivBookmarkEl.append(newDivBookmarkTopEl)
-
-    // return newDivBookmarkEl
-    return newDivBookmarkTopEl
+    return bookmarkTopEl
 }
 
-function buildBookmarkMiddleSection() {
+// Create the <div class="bookmark-middle"> element
+function buildBookmarkMiddleSection(data) {
+    let bookmarkMiddleSectionEl = document.createElement('div')
+    bookmarkMiddleSectionEl.classList.add('bookmark-middle')
 
+    let bookmarkDescEl = document.createElement('p')
+    bookmarkDescEl.classList.add('bookmark-description')
+    bookmarkDescEl.innerText = data.description
+
+    let bookmarkTagsEl = document.createElement('div')
+    bookmarkTagsEl.classList.add('bookmark-tags')
+
+    for (let tag of data.tags) {
+        let bookmarkTagEl = document.createElement('p')
+        bookmarkTagEl.classList.add('bookmark-tag')
+        bookmarkTagEl.innerText = tag
+
+        bookmarkTagsEl.append(bookmarkTagEl)
+    }
+
+    bookmarkMiddleSectionEl.append(bookmarkDescEl, bookmarkTagsEl)
+
+    return bookmarkMiddleSectionEl
 }
 
 function buildBookmarkBottomSection(data) {
@@ -88,26 +108,28 @@ function buildBookmarkBottomSection(data) {
     return bookmarkEndEl
 }
 
+// Create the <div class="bookmark"> element
 function buildBookmarkElement(data) {
-    // Create the <div class="bookmark"> element
     let bookmarkEl = document.createElement('div')
     bookmarkEl.classList.add('bookmark')
 
     let bookmarkTopSection = buildBookmarkTopSection(data)
-
+    let bookmarkMiddleSection = buildBookmarkMiddleSection(data)
     let bookmarkBottomSection = buildBookmarkBottomSection(data)
+
+    let hrTEl = document.createElement('hr')
+    hrTEl.classList.add('horizon')
     
+    let hrMEl = document.createElement('hr')
+    hrMEl.classList.add('horizon')
+
     bookmarkEl.append(bookmarkTopSection)
+    bookmarkEl.append(hrTEl)
+    bookmarkEl.append(bookmarkMiddleSection)
+    bookmarkEl.append(hrMEl)
     bookmarkEl.append(bookmarkBottomSection)
 
-
     return bookmarkEl
-    // let newDivMiddleEl = document.createElement('div')
-    // newDivMiddleEl.classList.add('bookmark-middle')
-    
-    // let newDivBottomEl = document.createElement('div')
-    // newDivBottomEl.classList.add('bookmark-bottom')
-    
 }
 
 function renderBookmarks(data) {

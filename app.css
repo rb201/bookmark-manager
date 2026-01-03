@@ -1,3 +1,7 @@
+/* * {
+    font-family: rubik;
+} */
+
 body {
     margin: 0;
 }
@@ -68,7 +72,7 @@ body {
     border-style: solid;
     border-width: 1px;
     border-color: hsla(130, 35%, 80%, 0.304);
-    padding: 1em;
+    padding: 2em;
 }
 
 .main-header {
@@ -95,27 +99,48 @@ body {
 .section-bookmarks {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 2em;
 }
 
 .bookmark {
     display: flex;
-    flex: 1;
     flex-direction: column;
-    background-color: white;
-    padding: .5em;
     justify-content: center;
+
+    width: 300px;
+    height: 250px;
+
+    padding: 1em 1em 0 1em;
+
+    background-color: white;
+
+    border-radius: 12px;
+    box-shadow: 0 1px 5px 1px rgba(0, 0, 0, .2);
 }
 
 .bookmark-top {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    column-gap: .5em;
+    justify-content: space-between;
+
+    height: 60px;
+}
+
+.bookmark-info {
+    display: flex;
     column-gap: .5em;
 }
 
 .bookmark-icon {
     height: 40px;
     width: 40px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(202, 202, 202, 0.43);
+    border-radius: 4px;
 }
 
 .bookmark-title {
@@ -129,32 +154,66 @@ body {
     margin: 0;
 }
 
+.bookmark-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 150px;
+}
+
+.bookmark-tags {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: .5em;
+}
+
+.bookmark-tag {
+    padding: .25em .5em;
+    border-radius: 4px;
+    background-color: hsla(130, 35%, 80%, 0.304);
+    font-size: 12px;
+}
 
 .bookmark-end {
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
+    align-items: center;
     column-gap: .5em;
 }
 
 .bookmark-view-count {
     font-size: 12px;
+    margin: 6px;
 }
 
 .bookmark-last-visit {
     font-size: 12px;
+    margin: 6px;
 }
 
 .bookmark-pin-button {
     font-size: 12px;
+    margin: 6px;
 }
 
 .bookmark-submenu {
-
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 8px;
+    padding: .5em 1em;
 }
 
 .menu {
     border-radius: 4px;
     border-color: hsla(130, 35%, 80%, 0.304);
     border-style: solid;
+}
+
+.horizon {
+    width: 100%;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.428);
 }
