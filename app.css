@@ -83,7 +83,7 @@ body {
 
 .main-header-title {
     margin: 0;
-    padding: 1em;
+    padding: 1em 0;
 }
 
 .button-sort {
@@ -154,6 +154,20 @@ body {
     margin: 0;
 }
 
+.bookmark-submenu {
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 8px;
+    padding: .25em .5em;
+    font-size: 20px;
+}
+
+.bookmark-submenu:hover {
+    cursor: pointer;
+    background-color: rgb(231, 231, 231);
+}
+
 .bookmark-middle {
     display: flex;
     flex-direction: column;
@@ -196,14 +210,6 @@ body {
 .bookmark-pin-button {
     font-size: 12px;
     margin: 6px;
-}
-
-.bookmark-submenu {
-    background-color: white;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 8px;
-    padding: .5em 1em;
 }
 
 .menu {
