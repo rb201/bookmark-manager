@@ -2,14 +2,32 @@ const sectionBookmarksEl = document.querySelector('.section-bookmarks')
 
 let allBookmarks;
 
-const addBookmarkButton = document.querySelector('.button-bookmark')
+const addBookmarkButton = document.querySelector('.button-add-bookmark')
 addBookmarkButton.addEventListener('click', addBookmarkButtonHandler)
+
+const addBookmarkForm = document.querySelector('.form-add-bookmark')
+addBookmarkForm.addEventListener('submit', e => e.preventDefault())
+
+const closeBookmarkFormButton = document.querySelector('.form-close')
+closeBookmarkFormButton.addEventListener('click', closeAddBookmarkButtonHandler)
 
 const searchInput = document.querySelector('.search')
 searchInput.addEventListener('click', (e) => e.currentTarget.value = '')
 searchInput.addEventListener('input', e => searchBookmarkHandler(e))
 
-function addBookmarkButtonHandler() {}
+
+
+function addBookmarkButtonHandler() {
+    if (addBookmarkForm.classList.contains('form-open')) return
+
+    addBookmarkForm.classList.add('form-open')
+}
+
+function closeAddBookmarkButtonHandler() {
+    if (!addBookmarkForm.classList.contains('form-open')) return
+
+    addBookmarkForm.classList.remove('form-open')
+}
 
 function searchBookmarkHandler(e) {
     let searchText = e.currentTarget.value.toLowerCase()

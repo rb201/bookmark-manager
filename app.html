@@ -11,6 +11,18 @@
     <link rel="stylesheet" href="app.css">
 </head>
 <body>
+    <form class="form-add-bookmark" action="">
+        <div  class="form-header">
+            <p class="form-title">New bookmark</p>
+            <p class="form-close">X</p>
+        </div>
+        <input class="form-input" placeholder="Title" type="text" id="form-title" name="website name" />
+        <input class="form-input" placeholder="URL" type="text" id="form-url" name="website url" />
+        <input class="form-input" placeholder="Description" type="text" id="form-desc" name="website desc" />
+        <input class="form-input" placeholder="Tags {comma separated}" type="text" id="form-tags" name="tags" />
+        <input class="form-input" placeholder="Image link" type="text" id="form-site-image" name="website icon image" />
+        <button class="form-submit-button" type="button">Create!</button>
+    </form>
     <div class="container">
         <section class="menu">
             <div class="app-name">
@@ -30,7 +42,7 @@
         <div class="interactive-bar">
             <input class="search" type="text" value="Search by title">
             <div class="nav-funcs">
-                <button class="button-bookmark" type="button">+ Add Bookmark</button>
+                <button class="button-add-bookmark" type="button">+ Add Bookmark</button>
                 <img src="profilepic.png" class="profile-image">
             </div>
         </div>
