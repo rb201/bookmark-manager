@@ -1,24 +1,56 @@
 const sectionBookmarksEl = document.querySelector('.section-bookmarks')
 
+let allBookmarks;
+
 const addBookmarkButton = document.querySelector('.button-bookmark')
 addBookmarkButton.addEventListener('click', addBookmarkButtonHandler)
 
+const searchInput = document.querySelector('.search')
+searchInput.addEventListener('click', (e) => e.currentTarget.value = '')
+searchInput.addEventListener('input', e => searchBookmarkHandler(e))
+
 function addBookmarkButtonHandler() {}
 
-function searchBookmarkHandler() {}
+function searchBookmarkHandler(e) {
+    let searchText = e.currentTarget.value.toLowerCase()
+    let filteredBookmark = []
+
+    for (let bookmark of allBookmarks) {
+        let bookmarkTitle = bookmark
+            .title
+            .toLowerCase()
+
+        if (bookmarkTitle.includes(searchText)) {
+            filteredBookmark.push(bookmark)
+        }
+    }
+
+    let bookmarkEls = buildBookmarkElement(filteredBookmark)
+
+    renderBookmarks(bookmarkEls)
+}
 
 function bookmarkSubmenuHandler() {}
+
+async function entrypoint() {
+    let data = await loadBookmarks()
+
+    let bookmarks = buildBookmarkElement(data)
+
+    renderBookmarks(bookmarks)
+}
 
 async function loadBookmarks() {
     const res = await fetch('http://localhost:3000/data')
 
-    console.log(res)
     if(!res.ok) throw new Error(`Error: ${res.status}`)
 
     const data = await res.json()
+    
+    // in-memory cache
+    allBookmarks = data
 
-    // console.log(data)
-    renderBookmarks(data)
+    return data
 }
 
 // Create <div class="bookmark-top">
@@ -51,7 +83,7 @@ function buildBookmarkTopSection(data) {
     let newButtonSubMenu = document.createElement('button')
     newButtonSubMenu.classList.add('bookmark-submenu')
     newButtonSubMenu.type = "button"
-    newButtonSubMenu.innerText = "|"
+    newButtonSubMenu.innerText = "⋮"
     
     bookmarkTopEl.append(bookmarkInfoEl, newButtonSubMenu)
     
@@ -110,37 +142,44 @@ function buildBookmarkBottomSection(data) {
 
 // Create the <div class="bookmark"> element
 function buildBookmarkElement(data) {
-    let bookmarkEl = document.createElement('div')
-    bookmarkEl.classList.add('bookmark')
+    const bookmarks = []
 
-    let bookmarkTopSection = buildBookmarkTopSection(data)
-    let bookmarkMiddleSection = buildBookmarkMiddleSection(data)
-    let bookmarkBottomSection = buildBookmarkBottomSection(data)
+    data.forEach(bookmarkData => {
+        let bookmarkEl = document.createElement('div')
+        bookmarkEl.classList.add('bookmark')
 
-    let hrTEl = document.createElement('hr')
-    hrTEl.classList.add('horizon')
-    
-    let hrMEl = document.createElement('hr')
-    hrMEl.classList.add('horizon')
+        let bookmarkTopSection = buildBookmarkTopSection(bookmarkData)
+        let bookmarkMiddleSection = buildBookmarkMiddleSection(bookmarkData)
+        let bookmarkBottomSection = buildBookmarkBottomSection(bookmarkData)
 
-    bookmarkEl.append(bookmarkTopSection)
-    bookmarkEl.append(hrTEl)
-    bookmarkEl.append(bookmarkMiddleSection)
-    bookmarkEl.append(hrMEl)
-    bookmarkEl.append(bookmarkBottomSection)
+        let hrTEl = document.createElement('hr')
+        hrTEl.classList.add('horizon')
+        
+        let hrMEl = document.createElement('hr')
+        hrMEl.classList.add('horizon')
 
-    return bookmarkEl
+        bookmarkEl.append(bookmarkTopSection)
+        bookmarkEl.append(hrTEl)
+        bookmarkEl.append(bookmarkMiddleSection)
+        bookmarkEl.append(hrMEl)
+        bookmarkEl.append(bookmarkBottomSection)
+        
+        bookmarks.push(bookmarkEl)
+    })
+
+    return bookmarks
 }
 
 function renderBookmarks(data) {
+    sectionBookmarksEl.innerHTML = ''
+
     const fragement = document.createDocumentFragment()
     
-    data.forEach(bookmarkData => {
-        let bookmarkEl = buildBookmarkElement(bookmarkData)
-        fragement.append(bookmarkEl)
+    data.forEach(bookmark => {
+        fragement.append(bookmark)
     })
 
     sectionBookmarksEl.append(fragement)
 }
 
-loadBookmarks()
+entrypoint()
