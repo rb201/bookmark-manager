@@ -229,6 +229,7 @@ body {
     display: none;
     flex-wrap: wrap;
     flex-direction: column;
+    justify-content: center;
 
     position: fixed;
     inset: 30%;
@@ -245,8 +246,6 @@ body {
 
     box-shadow: 0 1px 7px 3px rgba(0, 0, 0, .3);
 }
-
-.form-add-bookmark
 
 .form-add-bookmark.form-open {
     display: flex;
