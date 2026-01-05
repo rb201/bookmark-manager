@@ -8,13 +8,15 @@ addBookmarkButton.addEventListener('click', addBookmarkButtonHandler)
 const addBookmarkForm = document.querySelector('.form-add-bookmark')
 addBookmarkForm.addEventListener('submit', e => e.preventDefault())
 
+const submitAddBookmarkForm = document.querySelector('.form-submit-button')
+submitAddBookmarkForm.addEventListener('click', validateAddBookmarkFormHandler)
+
 const closeBookmarkFormButton = document.querySelector('.form-close')
 closeBookmarkFormButton.addEventListener('click', closeAddBookmarkButtonHandler)
 
 const searchInput = document.querySelector('.search')
 searchInput.addEventListener('click', (e) => e.currentTarget.value = '')
 searchInput.addEventListener('input', e => searchBookmarkHandler(e))
-
 
 
 function addBookmarkButtonHandler() {
@@ -28,6 +30,68 @@ function closeAddBookmarkButtonHandler() {
 
     addBookmarkForm.classList.remove('form-open')
 }
+
+function validateAddBookmarkFormHandler() {
+    // const newBookmarkData = {}
+
+    // const title = document.getElementById("form-title")
+    // const url = document.getElementById("form-url")
+    // const desc = document.getElementById("form-desc")
+    // const tags = document.getElementById("form-tags")
+    // const imageURI = document.getElementById("form-image-uri")
+
+    // validate data before creating obj. below is temp
+
+    const newBookmarkData = {
+        id: "unique-id-51",
+        title: document.getElementById("form-title").value,
+        url: document.getElementById("form-url").value,
+        desc: document.getElementById("form-desc").value,
+        tags: [document.getElementById("form-tags").value],
+        dateAdded: "2025-01-01T12:00:00Z",
+        lastVisited: "2025-12-25T14:30:00Z",
+        viewCount: 50,
+        isPinned: true,
+        isArchived: false,
+        imageUrl: document.getElementById("form-image-uri").value,
+    }
+
+//     {
+//     "id": "unique-id-1",
+//     "title": "Frontend Mentor",
+//     "url": "frontendmentor.io/",
+//     "description": "Improve your coding skills by building real projects.",
+//     "tags": ["coding", "challenge", "frontend"],
+//     "dateAdded": "2025-01-01T12:00:00Z",
+//     "lastVisited": "2025-12-25T14:30:00Z",
+//     "viewCount": 50,
+//     "isPinned": true,
+//     "isArchived": false,
+//     "imgUrl": "https://www.google.com/s2/favicons?domain=www.frontendmentor.io&sz=128"
+//   },
+
+    submitAddBookmarkFormHandler(newBookmarkData)
+}
+
+async function submitAddBookmarkFormHandler(formData) {
+    try {
+        const res = await fetch('http://localhost:3000/data', {
+            method: "POST",
+            headers: {
+                'Content-Type': "application/json",
+            },
+            body: JSON.stringify(formData)
+        })
+
+        if (!res.ok) throw new Error("error posting " + res.status)
+
+        console.log(res)
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+function validateFormData() {}
 
 function searchBookmarkHandler(e) {
     let searchText = e.currentTarget.value.toLowerCase()
