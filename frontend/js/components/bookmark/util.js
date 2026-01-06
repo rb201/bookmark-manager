@@ -17,6 +17,14 @@ export async function loadBookmarks() {
     return data
 }
 
+export function renderOneBookmark(data){
+    const fragement = document.createDocumentFragment()
+
+    fragement.append(bookmark)
+
+    sectionBookmarksEl.append(fragement)
+}
+
 export function renderBookmarks(data) {
     sectionBookmarksEl.innerHTML = ''
 
@@ -27,4 +35,15 @@ export function renderBookmarks(data) {
     })
 
     sectionBookmarksEl.append(fragement)
+}
+
+export function formateDateForPresentation(date) {
+    let specDate = new Date(date)
+
+    let day = specDate.getDate()
+    let monthShortText = specDate.toLocaleString('default', {month: 'short'})
+    let year = String(specDate.getFullYear()).slice(-2)
+
+    let strDate = `${day} ${monthShortText} ${year}`
+    return strDate
 }
