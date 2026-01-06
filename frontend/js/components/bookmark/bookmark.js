@@ -72,7 +72,7 @@ function buildBookmarkBottomSection(data) {
 
     let viewImgEl = document.createElement('img')
     viewImgEl.classList.add('bookmark-view-image')
-    viewImgEl.src = "eye.svg"
+    viewImgEl.src = "js/images/eye.svg"
 
     let viewEl = document.createElement('p')
     viewEl.classList.add('bookmark-view-count')
@@ -85,7 +85,7 @@ function buildBookmarkBottomSection(data) {
 
     let timeImage = document.createElement('img')
     timeImage.classList.add('bookmark-last-visit-image')
-    timeImage.src = "clock.svg"
+    timeImage.src = "js/images/clock.svg"
 
     let lastVisitEl = document.createElement('p')
     lastVisitEl.classList.add('bookmark-last-visit')
@@ -97,7 +97,7 @@ function buildBookmarkBottomSection(data) {
 
     let pinButtonEl = document.createElement('img')
     pinButtonEl.classList.add('bookmark-pin-button')
-    pinButtonEl.src = "thumbtack.svg"
+    pinButtonEl.src = "js/images/thumbtack.svg"
 
     if (data.isPinned) {
         pinButtonEl.classList.add('isPinned')
