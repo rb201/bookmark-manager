@@ -193,24 +193,55 @@ body {
 .bookmark-end {
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: space-between;
     align-items: center;
-    column-gap: .5em;
+    column-gap: 1em;
+}
+
+.bookmark-sec-par {
+    display: flex;
+}
+
+.bookmark-view-info {
+    display: flex;
+    align-items: center;
+}
+
+.bookmark-view-image {
+    height: 20px;
+    width: 20px;
 }
 
 .bookmark-view-count {
     font-size: 12px;
-    margin: 6px;
+    margin: 3px;
+}
+
+.bookmark-last-visit-info {
+    display: flex;
+    align-items: center;
+}
+
+.bookmark-last-visit-image {
+    height: 12px;
+    width: 12px;
 }
 
 .bookmark-last-visit {
     font-size: 12px;
-    margin: 6px;
+    margin: 0 .5em;
 }
 
 .bookmark-pin-button {
-    font-size: 12px;
+    /* font-size: 12px; */
+    display: none;
     margin: 6px;
+    height: 15px;
+    width: 15px;
+}
+
+.bookmark-pin-button.isPinned {
+    display: block;
 }
 
 .menu {
