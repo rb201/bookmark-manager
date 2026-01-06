@@ -1,5 +1,4 @@
-    const idx = document.getElementsByClassName('bookmark')
-    console.log(idx)
+import { formateDateForPresentation } from "./util.js"
 
 function buildBookmarkTopSection(data) {
     let bookmarkTopEl = document.createElement('div')
@@ -65,23 +64,46 @@ function buildBookmarkBottomSection(data) {
     let bookmarkEndEl = document.createElement('div')
     bookmarkEndEl.classList.add('bookmark-end')
 
+    let secParentDiv = document.createElement('div')
+    secParentDiv.classList.add('bookmark-sec-par')
+
+    let viewDiv = document.createElement('div')
+    viewDiv.classList.add('bookmark-view-info')
+
+    let viewImgEl = document.createElement('img')
+    viewImgEl.classList.add('bookmark-view-image')
+    viewImgEl.src = "eye.svg"
+
     let viewEl = document.createElement('p')
     viewEl.classList.add('bookmark-view-count')
     viewEl.innerText = data.viewCount
 
+    viewDiv.append(viewImgEl, viewEl)
+
+    let lastVisitDiv = document.createElement('div')
+    lastVisitDiv.classList.add('bookmark-last-visit-info')
+
+    let timeImage = document.createElement('img')
+    timeImage.classList.add('bookmark-last-visit-image')
+    timeImage.src = "clock.svg"
+
     let lastVisitEl = document.createElement('p')
     lastVisitEl.classList.add('bookmark-last-visit')
-    lastVisitEl.innerText = data.lastVisited.split('T')[0]
+    lastVisitEl.innerText = formateDateForPresentation(data.lastVisited)
 
-    let bookmarkDateAddEl = document.createElement('p')
-    bookmarkDateAddEl.classList.add('bookmark-date-added')
-    // bookmarkDateAddEl.innerText = data.dateAdded.split('T')[0]
+    lastVisitDiv.append(timeImage, lastVisitEl)
 
-    let pinButtonEl = document.createElement('p')
+    secParentDiv.append(viewDiv, lastVisitDiv)
+
+    let pinButtonEl = document.createElement('img')
     pinButtonEl.classList.add('bookmark-pin-button')
-    pinButtonEl.innerText = data.isPinned
+    pinButtonEl.src = "thumbtack.svg"
 
-    bookmarkEndEl.append(viewEl, lastVisitEl, bookmarkDateAddEl, pinButtonEl)
+    if (data.isPinned) {
+        pinButtonEl.classList.add('isPinned')
+    }
+
+    bookmarkEndEl.append(secParentDiv, pinButtonEl)
 
     return bookmarkEndEl
 }
