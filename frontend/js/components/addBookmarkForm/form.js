@@ -26,49 +26,43 @@ function closeBookmarkButtonHandler() {
 
 function submitBookmarkFormHandler(e) {
     e.preventDefault()
-    // validate data
-    // create obj
-    // post data
     // render
-    // const newBookmarkData = {}
-    // console.log('dssdds')
-    // validateFormData()
 
-
-    // const url = document.getElementById("form-url").value
- 
-    // validate data
     const title = document.getElementById("form-title").value
     const url = document.getElementById("form-url").value
     const desc = document.getElementById("form-desc").value
     const tags = document.getElementById("form-tags").value
     const imageUrl = document.getElementById("form-image-uri").value
-    // console.log(url)
     
-    
+    // WIP - validation
     if (!isUrlValid(url)) {
         return
     }
     
-    console.log('ok')
-    
-    
+    const bookmarkObj = createNewBookmark(newId, title, url, desc, tags, imageUrl)
+
+    submitBookmark(bookmarkObj)
+
+    // render
+}
+
+function generateNewId() {
+    return `unique-id-${bookmarksCount}`
+}
+
+function createNewBookmark(id, title, url, desc, tags, imageUrl) {
     const newId = generateNewId()
-    // validate data before creating obj. below is temp
 
     const today = new Date().toISOString();
-    // console.log(today)
-    // let day = today.getDate()
-    // let month = today.toLocaleString('default', {month: 'short'})
-    // console.log(today.getFullYear())
 
+    let listOfTags = tags.split(',')
 
-    const newBookmarkData = {
-        id: newId,
+    const bookmarkObj = {
+        id: id,
         title: title,
         url: url,
         desc: desc,
-        tags: [tags],
+        tags: listOfTags,
         dateAdded: today,
         lastVisited: "",
         viewCount: 0,
@@ -77,30 +71,10 @@ function submitBookmarkFormHandler(e) {
         imageUrl: imageUrl,
     }
 
-//     {
-//     "id": "unique-id-1",
-//     "title": "Frontend Mentor",
-//     "url": "frontendmentor.io/",
-//     "description": "Improve your coding skills by building real projects.",
-//     "tags": ["coding", "challenge", "frontend"],
-//     "dateAdded": "2025-01-01T12:00:00Z",
-//     "lastVisited": "2025-12-25T14:30:00Z",
-//     "viewCount": 50,
-//     "isPinned": true,
-//     "isArchived": false,
-//     "imgUrl": "https://www.google.com/s2/favicons?domain=www.frontendmentor.io&sz=128"
-//   },
-
-    submitAddBookmarkFormHandler(newBookmarkData)
+    return bookmarkObj
 }
 
-function generateNewId() {
-    return `unique-id-${bookmarksCount}`
-}
-
-function createNewBookmark(data) {}
-
-async function submitAddBookmarkFormHandler(formData) {
+async function submitBookmark(formData) {
     try {
         const res = await fetch('http://localhost:3000/data', {
             method: "POST",
@@ -117,18 +91,6 @@ async function submitAddBookmarkFormHandler(formData) {
         console.log(err)
     }
 }
-
-// function validateFormData() {
-//     // const url = new URL(document.getElementById("form-url").value)
-//     const url = document.getElementById("form-url").value
-
-//     if (!isUrlValid(url)) return
-
-//     let title = document.getElementById("form-title").value;
-//     // let url = document.getElementById("form-url").value;
-//     let desc = document.getElementById("form-desc").value;
-//     let tags= [document.getElementById("form-tags").value];
-// }
 
 function isUrlValid(urlData) {
     try {
