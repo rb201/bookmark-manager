@@ -200,6 +200,7 @@ body {
 
 .bookmark-sec-par {
     display: flex;
+    column-gap: .5em;
 }
 
 .bookmark-view-info {
@@ -233,7 +234,6 @@ body {
 }
 
 .bookmark-pin-button {
-    /* font-size: 12px; */
     display: none;
     margin: 6px;
     height: 15px;
