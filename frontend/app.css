@@ -155,7 +155,7 @@ body {
     margin: 0;
 }
 
-.bookmark-submenu {
+.bookmark-submenu-button {
     background-color: white;
     border-style: solid;
     border-width: 1px;
@@ -164,9 +164,19 @@ body {
     font-size: 20px;
 }
 
-.bookmark-submenu:hover {
+.bookmark-submenu-button:hover {
     cursor: pointer;
     background-color: rgb(231, 231, 231);
+}
+
+.bookmark-submenu {
+    display: none;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.bookmark-submenu.isSubmenuOpen {
+    display: flex;
 }
 
 .bookmark-middle {
@@ -209,8 +219,8 @@ body {
 }
 
 .bookmark-view-image {
-    height: 20px;
-    width: 20px;
+    height: 17px;
+    width: 17px;
 }
 
 .bookmark-view-count {
@@ -224,8 +234,8 @@ body {
 }
 
 .bookmark-last-visit-image {
-    height: 12px;
-    width: 12px;
+    height: 11px;
+    width: 11px;
 }
 
 .bookmark-last-visit {

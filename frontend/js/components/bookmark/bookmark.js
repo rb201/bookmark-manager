@@ -26,12 +26,21 @@ function buildBookmarkTopSection(data) {
     newDivInBookmarkTopEl.append(titleEl, urlEl)
     bookmarkInfoEl.append(imgEl, newDivInBookmarkTopEl)
 
-    let newButtonSubMenu = document.createElement('button')
-    newButtonSubMenu.classList.add('bookmark-submenu')
-    newButtonSubMenu.type = "button"
-    newButtonSubMenu.innerText = "⋮"
+    let buttonSubMenu = document.createElement('button')
+    buttonSubMenu.classList.add('bookmark-submenu-button')
+    buttonSubMenu.type = "button"
+    buttonSubMenu.innerText = "⋮"
     
-    bookmarkTopEl.append(bookmarkInfoEl, newButtonSubMenu)
+    let bookmarkSubmenu = document.createElement('div')
+    bookmarkSubmenu.classList.add('bookmark-submenu')
+
+    let submenuEditButton = document.createElement('p')
+    let submenuArchiveButton = document.createElement('p')
+    let submenuDeleteButton = document.createElement('p')
+
+    bookmarkSubmenu.append(submenuEditButton, submenuArchiveButton, submenuDeleteButton)
+
+    bookmarkTopEl.append(bookmarkInfoEl, buttonSubMenu, bookmarkSubmenu)
     
     return bookmarkTopEl
 }

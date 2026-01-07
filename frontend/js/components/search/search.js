@@ -2,7 +2,6 @@ import { buildBookmarkElement } from "../bookmark/bookmark.js"
 import { allBookmarks, renderBookmarks } from "../bookmark/util.js"
 
 const searchInput = document.querySelector('.search')
-searchInput.addEventListener('click', (e) => e.currentTarget.value = '')
 searchInput.addEventListener('input', e => searchBookmarkHandler(e))
 
 function searchBookmarkHandler(e) {
