@@ -1,3 +1,4 @@
+import { bookmarkSubmenuHandler } from "./subMenu/submenu.js"
 import { formateDateForPresentation } from "./util.js"
 
 function buildBookmarkTopSection(data) {
@@ -26,21 +27,30 @@ function buildBookmarkTopSection(data) {
     newDivInBookmarkTopEl.append(titleEl, urlEl)
     bookmarkInfoEl.append(imgEl, newDivInBookmarkTopEl)
 
+    let subMenuContainer = document.createElement('div')
+    subMenuContainer.classList.add('submenu-container')
+
     let buttonSubMenu = document.createElement('button')
     buttonSubMenu.classList.add('bookmark-submenu-button')
     buttonSubMenu.type = "button"
     buttonSubMenu.innerText = "⋮"
-    
-    let bookmarkSubmenu = document.createElement('div')
-    bookmarkSubmenu.classList.add('bookmark-submenu')
+    buttonSubMenu.addEventListener('click', e => bookmarkSubmenuHandler(e))
 
-    let submenuEditButton = document.createElement('p')
-    let submenuArchiveButton = document.createElement('p')
-    let submenuDeleteButton = document.createElement('p')
+    let subMenu = document.createElement('ul')
+    subMenu.classList.add('bookmark-submenu')
 
-    bookmarkSubmenu.append(submenuEditButton, submenuArchiveButton, submenuDeleteButton)
+    let bookmarkEdit = document.createElement('li')
+    bookmarkEdit.innerText = 'Edit'
+    let bookmarkArchive = document.createElement('li')
+    bookmarkArchive.innerText = "Archive"
+    let bookmarkDelete = document.createElement('li')
+    bookmarkDelete.innerText = 'Delete'
 
-    bookmarkTopEl.append(bookmarkInfoEl, buttonSubMenu, bookmarkSubmenu)
+    subMenu.append(bookmarkEdit, bookmarkArchive, bookmarkDelete)
+
+    subMenuContainer.append(buttonSubMenu, subMenu)
+
+    bookmarkTopEl.append(bookmarkInfoEl, subMenuContainer)
     
     return bookmarkTopEl
 }
