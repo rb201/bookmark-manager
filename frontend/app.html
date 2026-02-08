@@ -26,19 +26,34 @@
     <div class="container">
         <section class="menu">
             <div class="app-name">
-                <img src="">
+                <img class="side-menu-bookmark-img" src="js/images/bookmark.svg">
                 <h3>Bookmark Manager</h3>
             </div>
-            <div class="sub-menu">
-                <p>Home</p>
-                <p>Archived</p>
+
+            <div class="side-menu">
+                <div class="side-menu-item-container">
+                    <img class="side-menu-item-home-img" src="js/images/home.svg">
+                    <p class="side-menu-item">Home</p>
+                </div>
+
+                <div class="side-menu-item-container">
+                    <img class="side-menu-item-archive-img" src="js/images/archive.svg">
+                    <p class="side-menu-item">Archived</p>
+                </div>
+
+                <div class="side-menu-item-container">
+                    <img class="side-menu-item-trash-img" src="js/images/recycle-bin.svg">
+                    <p class="side-menu-item">Trash</p>
+                </div>
             </div>
+
             <div class="tags">
                 <p>Tags</p>
                 <p>ai</p>
                 <p>devops</p>
             </div>
         </section>
+
         <div class="interactive-bar">
             <input class="search" type="text" placeholder="Search by title">
             <div class="nav-funcs">
@@ -46,6 +61,7 @@
                 <img src="profilepic.png" class="profile-image">
             </div>
         </div>
+
         <section class="main">
             <div class="main-header">
                 <p class="main-header-title">All bookmarks</p>
