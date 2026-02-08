@@ -176,7 +176,6 @@ body {
 .bookmark-submenu {
     display: none;
     flex-direction: column;
-    row-gap: .25em;
 
     position: absolute;
 
@@ -194,6 +193,14 @@ body {
 
 .bookmark-submenu.subMenuIsOpen {
     display: flex;
+}
+
+.bookmark-submenu > li {
+    padding: .25em;
+}
+
+.bookmark-submenu > li:hover {
+    background-color: rgb(99, 49, 49)
 }
 
 .bookmark-middle {
