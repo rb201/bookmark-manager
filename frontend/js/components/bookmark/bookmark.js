@@ -1,4 +1,4 @@
-import { bookmarkSubmenuHandler } from "./subMenu/submenu.js"
+import { bookmarkSubmenuHandler, archiveBookmarkHandler, trashBookmarkHandler } from "./subMenu/submenu.js"
 import { formateDateForPresentation } from "./util.js"
 
 function buildBookmarkTopSection(data) {
@@ -43,8 +43,10 @@ function buildBookmarkTopSection(data) {
     bookmarkEdit.innerText = 'Edit'
     let bookmarkArchive = document.createElement('li')
     bookmarkArchive.innerText = "Archive"
+    bookmarkArchive.addEventListener('click', () => archiveBookmarkHandler(data.id))
     let bookmarkDelete = document.createElement('li')
     bookmarkDelete.innerText = 'Delete'
+    bookmarkDelete.addEventListener('click', () => trashBookmarkHandler(data.id))
 
     subMenu.append(bookmarkEdit, bookmarkArchive, bookmarkDelete)
 

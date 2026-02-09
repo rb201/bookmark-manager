@@ -1,6 +1,6 @@
 import { allBookmarks } from "../bookmark/util.js"
 import { buildBookmarkElement } from "../bookmark/bookmark.js";
-import { renderBookmarks } from "../bookmark/util.js";
+import { renderBookmarks, sortPinnedBookmarks } from "../bookmark/util.js";
 
 const sideMenuNavEl = document.querySelectorAll('.side-menu-item-container')
 
@@ -21,23 +21,21 @@ function sideMenuNavHandler(e) {
 }
 
 function homeNavHandler() {
-    buildAndRender(allBookmarks)
+    let sortedData = sortPinnedBookmarks(allBookmarks)
+
+    buildAndRender(sortedData)
 }
 
 function archiveNavHandler() {
-    let archivedBookmarks = []
-
-    for (let bookmark of allBookmarks) {
-        if (bookmark.isArchived === true) {
-            archivedBookmarks.push(bookmark)
-        }
-    }
+    let archivedBookmarks = allBookmarks.filter(bookmark => bookmark.isArchived)
 
     buildAndRender(archivedBookmarks)
 }
 
 function trashNavHandler() {
+    let trashedBookmarks = allBookmarks.filter(bookmark => bookmark.toDelete)
 
+    buildAndRender(trashedBookmarks)
 }
 
 function buildAndRender(data) {
