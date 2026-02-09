@@ -47,3 +47,12 @@ export function formateDateForPresentation(date) {
     let strDate = `${day} ${monthShortText} ${year}`
     return strDate
 }
+
+export function sortPinnedBookmarks(data) {
+    const pinnedBookmark = data.filter(bookmark => bookmark.isPinned)
+    const unpinnedBookmark = data.filter(bookmark => !bookmark.isPinned)
+
+    let sortedBookmarks = pinnedBookmark.concat(unpinnedBookmark)
+
+    return sortedBookmarks
+}
