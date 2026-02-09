@@ -49,8 +49,10 @@ export function formateDateForPresentation(date) {
 }
 
 export function sortPinnedBookmarks(data) {
-    const pinnedBookmark = data.filter(bookmark => bookmark.isPinned)
-    const unpinnedBookmark = data.filter(bookmark => !bookmark.isPinned)
+    const nonArchivedData = data.filter(bookmark => !bookmark.isArchived)
+
+    const pinnedBookmark = nonArchivedData.filter(bookmark => bookmark.isPinned && !bookmark.isArchived)
+    const unpinnedBookmark = nonArchivedData.filter(bookmark => !bookmark.isPinned && !bookmark.isArchived)
 
     let sortedBookmarks = pinnedBookmark.concat(unpinnedBookmark)
 
