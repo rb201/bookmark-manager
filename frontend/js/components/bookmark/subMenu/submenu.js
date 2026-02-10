@@ -5,6 +5,17 @@ export function bookmarkSubmenuHandler(e) {
 }
 
 export async function archiveBookmarkHandler(bookmarkId) {
+    // update cache
+    for (let bookmark of allBookmarks) {
+        if (bookmark.id == bookmarkId) {
+            bookmark.isArchived = true
+            break
+        }
+    }
+
+    // remove object from current dom
+
+    // update db
     try {
         const res = await fetch(`http://localhost:3000/data/${bookmarkId}`, {
             method: 'PATCH',
