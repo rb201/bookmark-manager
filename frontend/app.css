@@ -316,14 +316,10 @@ body {
 }
 
 .bookmark-pin-button {
-    display: none;
+    display: block;
     margin: 6px;
     height: 15px;
     width: 15px;
-}
-
-.bookmark-pin-button.isPinned {
-    display: block;
 }
 
 .menu {

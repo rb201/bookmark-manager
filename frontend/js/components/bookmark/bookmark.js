@@ -1,5 +1,5 @@
 import { bookmarkSubmenuHandler, archiveBookmarkHandler, trashBookmarkHandler } from "./subMenu/submenu.js"
-import { formateDateForPresentation } from "./util.js"
+import { formateDateForPresentation, pinBookmarkHandler } from "./util.js"
 
 function buildBookmarkTopSection(data) {
     let bookmarkTopEl = document.createElement('div')
@@ -118,11 +118,10 @@ function buildBookmarkBottomSection(data) {
 
     let pinButtonEl = document.createElement('img')
     pinButtonEl.classList.add('bookmark-pin-button')
-    pinButtonEl.src = "js/images/thumbtack.svg"
-
-    if (data.isPinned) {
-        pinButtonEl.classList.add('isPinned')
-    }
+    pinButtonEl.src = data.isPinned
+        ? "js/images/thumbtack-active.svg"
+        : "js/images/thumbtack-inactive.svg"
+    pinButtonEl.addEventListener('click', () => pinBookmarkHandler(data.id))
 
     bookmarkEndEl.append(secParentDiv, pinButtonEl)
 
