@@ -163,14 +163,29 @@ export function buildBookmarkElement(data) {
 }
 
 export function sortPinnedBookmarks(data) {
-    const nonArchivedData = data.filter(bookmark => !bookmark.isArchived && !bookmark.toDelete)
+    const nonArchivedData = getNonArchivedToDeleteBookmarks(data)
 
-    const pinnedBookmark = nonArchivedData.filter(bookmark => bookmark.isPinned && !bookmark.isArchived && !bookmark.toDelete)
-    const unpinnedBookmark = nonArchivedData.filter(bookmark => !bookmark.isPinned && !bookmark.isArchived && !bookmark.toDelete)
+    // const pinnedBookmark = nonArchivedData.filter(bookmark => bookmark.isPinned)
+    // const unpinnedBookmark = nonArchivedData.filter(bookmark => !bookmark.isPinned)
+
+    const pinnedBookmark = getPinnedBookmarks(nonArchivedData)
+    const unpinnedBookmark = getUnpinnedBookmarks(nonArchivedData)
 
     sortedBookmarks = pinnedBookmark.concat(unpinnedBookmark)
 
     return sortedBookmarks
+}
+
+function getNonArchivedToDeleteBookmarks(data) {
+    return data.filter(bookmark => !bookmark.isArchived && !bookmark.toDelete)
+}
+
+function getPinnedBookmarks(data) {
+    return data.filter(bookmark => bookmark.isPinned)
+}
+
+function getUnpinnedBookmarks(data) {
+    return data.filter(bookmark => !bookmark.isPinned)
 }
 
 export function pinBookmarkHandler(bookmarkId) {
@@ -188,6 +203,12 @@ export function pinBookmarkHandler(bookmarkId) {
         pinState = false
     }
 
+    // write to db
+    updatePinState(bookmarkId, pinState)
+
+    // remove from top of page and move to unpinned area
+    movePinUnpinBookmark(bookmarkId, pinState)
+
     // update cache
     for (let bookmark of allBookmarks) {
         if (bookmark.id == bookmarkId) {
@@ -195,11 +216,50 @@ export function pinBookmarkHandler(bookmarkId) {
             break
         }
     }
+}
 
-    // remove from top of page and move to unpinned area
+function movePinUnpinBookmark(bookmarkId, pinState) {
+    let curBookmarkNum = parseInt(bookmarkId.split("-").at(-1))
 
-    // write to db
-    updatePinState(bookmarkId, pinState)
+    let data = getNonArchivedToDeleteBookmarks(allBookmarks)
+
+    const curBookmarkEl = document.querySelector(`#${bookmarkId}`)
+
+    if (pinState === true) {
+        let pinnedBookmarks = getPinnedBookmarks(data)
+
+        for (let idx = 0; idx < pinnedBookmarks.length; idx++) {
+            let pinBookmarkNum = parseInt(pinnedBookmarks[idx].id.split("-").at(-1))
+
+            if (pinBookmarkNum > curBookmarkNum){
+                const pBookmarkEl = document.querySelector(`#${pinnedBookmarks[idx].id}`)
+                pBookmarkEl.before(curBookmarkEl)
+                break
+            }
+
+            if (idx === pinnedBookmarks.length - 1) {
+                const pBookmarkEl = document.querySelector(`#${pinnedBookmarks[idx].id}`)
+                pBookmarkEl.after(curBookmarkEl)
+            }
+        }
+    } else {
+        let unPinnedBookmarks = getUnpinnedBookmarks(data)
+
+        for (let idx = 0; idx < unPinnedBookmarks.length; idx++) {
+            let unPinnedBookmarkNum = parseInt(unPinnedBookmarks[idx].id.split("-").at(-1))
+
+            if (unPinnedBookmarkNum > curBookmarkNum){
+                const pBookmarkEl = document.querySelector(`#${unPinnedBookmarks[idx].id}`)
+                pBookmarkEl.before(curBookmarkEl)
+                break
+            }
+
+            if (idx === unPinnedBookmarks.length - 1) {
+                const pBookmarkEl = document.querySelector(`#${unPinnedBookmarks[idx].id}`)
+                pBookmarkEl.after(curBookmarkEl)
+            }
+        }
+    }
 }
 
 async function updatePinState(bookmarkId, pinState) {
