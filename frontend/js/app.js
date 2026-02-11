@@ -1,8 +1,8 @@
 import "./components/search/search.js";
 import "./components/addBookmarkForm/form.js"
 import "./components/sideMenu/sideMenu.js"
-import { buildBookmarkElement } from "./components/bookmark/bookmark.js";
-import { loadBookmarks, renderBookmarks, sortPinnedBookmarks } from "./components/bookmark/util.js";
+import { buildBookmarkElement, sortPinnedBookmarks } from "./components/bookmark/bookmark.js";
+import { loadBookmarks, renderBookmarks } from "./components/bookmark/util.js";
 
 
 async function entrypoint() {

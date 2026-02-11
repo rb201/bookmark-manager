@@ -1,6 +1,6 @@
 import { allBookmarks } from "../bookmark/util.js"
-import { buildBookmarkElement } from "../bookmark/bookmark.js";
-import { renderBookmarks, sortPinnedBookmarks } from "../bookmark/util.js";
+import { buildBookmarkElement, sortPinnedBookmarks } from "../bookmark/bookmark.js";
+import { renderBookmarks } from "../bookmark/util.js";
 
 const sideMenuNavEl = document.querySelectorAll('.side-menu-item-container')
 

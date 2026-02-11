@@ -1,5 +1,9 @@
+import { allBookmarks } from "./util.js"
 import { bookmarkSubmenuHandler, archiveBookmarkHandler, trashBookmarkHandler } from "./subMenu/submenu.js"
-import { formateDateForPresentation, pinBookmarkHandler } from "./util.js"
+import { formateDateForPresentation } from "./util.js"
+
+// sequence of pinned then unpinned bookmarks
+let sortedBookmarks = []
 
 function buildBookmarkTopSection(data) {
     let bookmarkTopEl = document.createElement('div')
@@ -156,4 +160,60 @@ export function buildBookmarkElement(data) {
     })
 
     return bookmarks
+}
+
+export function sortPinnedBookmarks(data) {
+    const nonArchivedData = data.filter(bookmark => !bookmark.isArchived && !bookmark.toDelete)
+
+    const pinnedBookmark = nonArchivedData.filter(bookmark => bookmark.isPinned && !bookmark.isArchived && !bookmark.toDelete)
+    const unpinnedBookmark = nonArchivedData.filter(bookmark => !bookmark.isPinned && !bookmark.isArchived && !bookmark.toDelete)
+
+    sortedBookmarks = pinnedBookmark.concat(unpinnedBookmark)
+
+    return sortedBookmarks
+}
+
+export function pinBookmarkHandler(bookmarkId) {
+    const bookmarkEl = document.querySelector(`#${bookmarkId}`)
+    const pinImgEl = bookmarkEl.querySelector(".bookmark-pin-button")
+
+    let pinState
+
+    // toggle pin state
+    if (pinImgEl.src.includes("inactive")) {
+        pinImgEl.src = "js/images/thumbtack-active.svg"
+        pinState = true
+    } else {
+        pinImgEl.src = "js/images/thumbtack-inactive.svg"
+        pinState = false
+    }
+
+    // update cache
+    for (let bookmark of allBookmarks) {
+        if (bookmark.id == bookmarkId) {
+            bookmark.isPinned = pinState
+            break
+        }
+    }
+
+    // remove from top of page and move to unpinned area
+
+    // write to db
+    updatePinState(bookmarkId, pinState)
+}
+
+async function updatePinState(bookmarkId, pinState) {
+    try {
+        const res = await fetch(`http://localhost:3000/data/${bookmarkId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({isPinned: pinState})
+        })
+
+        if (!res.ok) throw new Error(`HTTP error. status: ${res.status}`)
+    } catch (err) {
+        console.log(err)
+    }
 }
