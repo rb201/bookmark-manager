@@ -11,12 +11,18 @@ sideMenuNavEl.forEach(el => {
 function sideMenuNavHandler(e) {
     const nav = e.currentTarget.innerText
 
-    if (nav == "Home") {
-        homeNavHandler()
-    } else if (nav == "Archive") {
-        archiveNavHandler()
-    } else if (nav == "Trash") {
-        trashNavHandler()
+    switch (nav){
+        case "Home":
+            homeNavHandler()
+            break
+
+        case "Archive":
+            archiveNavHandler()
+            break
+
+        case "Trash":
+            trashNavHandler()
+            break
     }
 }
 
