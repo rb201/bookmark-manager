@@ -51,7 +51,7 @@ export function buildSubMenu(data, bookmarkStatus) {
             let bookmarkDelete = document.createElement('li')
             bookmarkDelete.classList.add("submenu-delete")
             bookmarkDelete.innerText = 'Delete'
-            bookmarkDelete.addEventListener('click', () => trashBookmarkHandler(data.id))
+            bookmarkDelete.addEventListener('click', () => deleteBookmarkHandler(data.id))
 
             subMenu.append(bookmarkEdit, bookmarkArchive, bookmarkRestore, bookmarkDelete)
             break
@@ -117,20 +117,43 @@ function trashBookmarkHandler(bookmarkId, toDelete) {
     }
 }
 
-async function emptyTrash() {
+function emptyTrash() {
     let toBeDeletedBookmarks = allBookmarks.filter(bookmark => bookmark.toDelete)
 
     for (let bookmark of toBeDeletedBookmarks){
-        try {
-            const res = await fetch(`http://localhost:3000/data/${bookmark.id}`, {
-                method: "DELETE",
-            })
-
-            if (!res.ok) throw new Error(`HTTP error. status: ${res.status}`)
-        } catch (err) {
-            console.log(`There was a problem: ${err}`)
-        }
+        deleteBookmarkHandler(bookmark.id)
     }
+}
+
+function deleteBookmarkHandler(bookmarkId) {
+     // remove object from current dom
+    const curBookmarkToDeleteEl = document.querySelector(`#${bookmarkId}`)
+    curBookmarkToDeleteEl.remove()
+
+    // update db
+    deleteBookmarkPermanently(bookmarkId)
+
+    // update cache
+    // for (let bookmark of allBookmarks) {
+    //     if (bookmark.id == bookmarkId) {
+    //         bookmark.isArchived = false
+    //         bookmark.isPinned = false
+    //         break
+    //     }
+    // }
+}
+
+async function deleteBookmarkPermanently(bookmarkId) {
+    try {
+        const res = await fetch(`http://localhost:3000/data/${bookmarkId}`, {
+            method: "DELETE",
+        })
+
+        if (!res.ok) throw new Error(`HTTP error. status: ${res.status}`)
+    } catch (err) {
+        console.log(`There was a problem: ${err}`)
+    }
+
 }
 
 async function updateBookmarkDB(bookmarkId, method, body) {
