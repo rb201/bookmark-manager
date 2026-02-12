@@ -1,11 +1,11 @@
 import { allBookmarks } from "./util.js"
-import { bookmarkSubmenuHandler, archiveBookmarkHandler, trashBookmarkHandler } from "./subMenu/submenu.js"
+import { buildSubMenu } from "./subMenu/submenu.js"
 import { formateDateForPresentation } from "./util.js"
 
-// sequence of pinned then unpinned bookmarks
+// sorted sequence of pinned then unpinned bookmarks
 let sortedBookmarks = []
 
-function buildBookmarkTopSection(data) {
+function buildBookmarkTopSection(data, bookmarkStatus) {
     let bookmarkTopEl = document.createElement('div')
     bookmarkTopEl.classList.add('bookmark-top')
 
@@ -31,32 +31,9 @@ function buildBookmarkTopSection(data) {
     newDivInBookmarkTopEl.append(titleEl, urlEl)
     bookmarkInfoEl.append(imgEl, newDivInBookmarkTopEl)
 
-    let subMenuContainer = document.createElement('div')
-    subMenuContainer.classList.add('submenu-container')
+    let subMenu = buildSubMenu(data, bookmarkStatus)
 
-    let buttonSubMenu = document.createElement('button')
-    buttonSubMenu.classList.add('bookmark-submenu-button')
-    buttonSubMenu.type = "button"
-    buttonSubMenu.innerText = "⋮"
-    buttonSubMenu.addEventListener('click', e => bookmarkSubmenuHandler(e))
-
-    let subMenu = document.createElement('ul')
-    subMenu.classList.add('bookmark-submenu')
-
-    let bookmarkEdit = document.createElement('li')
-    bookmarkEdit.innerText = 'Edit'
-    let bookmarkArchive = document.createElement('li')
-    bookmarkArchive.innerText = "Archive"
-    bookmarkArchive.addEventListener('click', () => archiveBookmarkHandler(data.id))
-    let bookmarkDelete = document.createElement('li')
-    bookmarkDelete.innerText = 'Delete'
-    bookmarkDelete.addEventListener('click', () => trashBookmarkHandler(data.id))
-
-    subMenu.append(bookmarkEdit, bookmarkArchive, bookmarkDelete)
-
-    subMenuContainer.append(buttonSubMenu, subMenu)
-
-    bookmarkTopEl.append(bookmarkInfoEl, subMenuContainer)
+    bookmarkTopEl.append(bookmarkInfoEl, subMenu)
     
     return bookmarkTopEl
 }
@@ -132,7 +109,7 @@ function buildBookmarkBottomSection(data) {
     return bookmarkEndEl
 }
 
-export function buildBookmarkElement(data) {
+export function buildBookmarkElement(data, bookmarkStatus = "active") {
     const bookmarks = []
 
     data.forEach(bookmarkData => {
@@ -140,7 +117,7 @@ export function buildBookmarkElement(data) {
         bookmarkEl.classList.add('bookmark')
         bookmarkEl.id = bookmarkData.id
 
-        let bookmarkTopSection = buildBookmarkTopSection(bookmarkData)
+        let bookmarkTopSection = buildBookmarkTopSection(bookmarkData, bookmarkStatus)
         let bookmarkMiddleSection = buildBookmarkMiddleSection(bookmarkData)
         let bookmarkBottomSection = buildBookmarkBottomSection(bookmarkData)
 
@@ -164,9 +141,6 @@ export function buildBookmarkElement(data) {
 
 export function sortPinnedBookmarks(data) {
     const nonArchivedData = getNonArchivedToDeleteBookmarks(data)
-
-    // const pinnedBookmark = nonArchivedData.filter(bookmark => bookmark.isPinned)
-    // const unpinnedBookmark = nonArchivedData.filter(bookmark => !bookmark.isPinned)
 
     const pinnedBookmark = getPinnedBookmarks(nonArchivedData)
     const unpinnedBookmark = getUnpinnedBookmarks(nonArchivedData)

@@ -35,17 +35,17 @@ function homeNavHandler() {
 function archiveNavHandler() {
     let archivedBookmarks = allBookmarks.filter(bookmark => bookmark.isArchived)
 
-    buildAndRender(archivedBookmarks)
+    buildAndRender(archivedBookmarks, "Archived")
 }
 
 function trashNavHandler() {
     let trashedBookmarks = allBookmarks.filter(bookmark => bookmark.toDelete)
 
-    buildAndRender(trashedBookmarks)
+    buildAndRender(trashedBookmarks, "Trashed")
 }
 
-function buildAndRender(data) {
-    let bookmarks = buildBookmarkElement(data)
+function buildAndRender(data, bookmarkStatus) {
+    let bookmarks = buildBookmarkElement(data, bookmarkStatus)
 
     renderBookmarks(bookmarks)
 }
