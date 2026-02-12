@@ -26,7 +26,7 @@ export function buildSubMenu(data, bookmarkStatus) {
             let bookmarkArchive = document.createElement('li')
             bookmarkArchive.classList.add("submenu-unarchive")
             bookmarkArchive.innerText = "Unarchive"
-            bookmarkArchive.addEventListener('click', () => unarchiveBookmarkHandler(data.id))
+            bookmarkArchive.addEventListener('click', () => archiveBookmarkHandler(data.id, false))
 
             let bookmarkTrash = document.createElement('li')
             bookmarkTrash.classList.add("submenu-trash")
@@ -41,7 +41,7 @@ export function buildSubMenu(data, bookmarkStatus) {
             let bookmarkArchive = document.createElement('li')
             bookmarkArchive.classList.add("submenu-archive")
             bookmarkArchive.innerText = "Archive"
-            bookmarkArchive.addEventListener('click', () => archiveBookmarkHandler(data.id))
+            bookmarkArchive.addEventListener('click', () => archiveBookmarkHandler(data.id, true))
 
             let bookmarkRestore = document.createElement('li')
             bookmarkRestore.classList.add("submenu-restore")
@@ -61,7 +61,7 @@ export function buildSubMenu(data, bookmarkStatus) {
             let bookmarkArchive = document.createElement('li')
             bookmarkArchive.classList.add("submenu-archive")
             bookmarkArchive.innerText = "Archive"
-            bookmarkArchive.addEventListener('click', () => archiveBookmarkHandler(data.id))
+            bookmarkArchive.addEventListener('click', () => archiveBookmarkHandler(data.id, true))
 
             let bookmarkTrash = document.createElement('li')
             bookmarkTrash.classList.add("submenu-trash")
@@ -78,20 +78,19 @@ export function buildSubMenu(data, bookmarkStatus) {
     return subMenuContainer
 }
 
-function unarchiveBookmarkHandler() {}
-
-function archiveBookmarkHandler(bookmarkId) {
+// handles archiving and unarchiving
+function archiveBookmarkHandler(bookmarkId, isArchived) {
     // remove object from current dom
     const curBookmarkToArchiveEl = document.querySelector(`#${bookmarkId}`)
     curBookmarkToArchiveEl.remove()
 
     // update db
-    updateBookmarkDB(bookmarkId, "PATCH", {isArchived: true, isPinned: false})
+    updateBookmarkDB(bookmarkId, "PATCH", {isArchived: isArchived, isPinned: false})
 
     // update cache
     for (let bookmark of allBookmarks) {
         if (bookmark.id == bookmarkId) {
-            bookmark.isArchived = true
+            bookmark.isArchived = isArchived
             bookmark.isPinned = false
             break
         }
