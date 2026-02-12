@@ -1,6 +1,6 @@
 import { allBookmarks } from "./util.js"
 import { buildSubMenu } from "./subMenu/submenu.js"
-import { formateDateForPresentation } from "./util.js"
+import { formateDateForPresentation, updateCache } from "./util.js"
 
 // sorted sequence of pinned then unpinned bookmarks
 let sortedBookmarks = []
@@ -184,12 +184,7 @@ export function pinBookmarkHandler(bookmarkId) {
     movePinUnpinBookmark(bookmarkId, pinState)
 
     // update cache
-    for (let bookmark of allBookmarks) {
-        if (bookmark.id == bookmarkId) {
-            bookmark.isPinned = pinState
-            break
-        }
-    }
+    updateCache(bookmarkId, "PATCH", {isPinned: pinState})
 }
 
 function movePinUnpinBookmark(bookmarkId, pinState) {
