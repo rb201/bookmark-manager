@@ -47,3 +47,5 @@ export function formateDateForPresentation(date) {
     let strDate = `${day} ${monthShortText} ${year}`
     return strDate
 }
+
+export function updateCache() {}
