@@ -5,6 +5,13 @@ export function bookmarkSubmenuHandler(e) {
 }
 
 export async function archiveBookmarkHandler(bookmarkId) {
+    // remove object from current dom
+    const curBookmarkToArchiveEl = document.querySelector(`#${bookmarkId}`)
+    curBookmarkToArchiveEl.remove()
+
+    // update db
+    updateBookmarkDB(bookmarkId, "PATCH", {isArchived: true, isPinned: false})
+
     // update cache
     for (let bookmark of allBookmarks) {
         if (bookmark.id == bookmarkId) {
@@ -13,52 +20,24 @@ export async function archiveBookmarkHandler(bookmarkId) {
             break
         }
     }
-
-    // remove object from current dom
-    const curBookmarkToArchiveEl = document.querySelector(`#${bookmarkId}`)
-    curBookmarkToArchiveEl.remove()
-
-    // update db
-    try {
-        const res = await fetch(`http://localhost:3000/data/${bookmarkId}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(
-                {
-                    isArchived: true,
-                    isPinned: false
-                }
-            )
-        })
-
-        if (!res.ok) throw new Error(`HTTP error. status: ${res.status}`)
-
-    } catch (err) {
-        console.log(`There was a problem: ${err}`)
-    }
 }
 
 export async function trashBookmarkHandler(bookmarkId) {
-    try {
-        const res = await fetch(`http://localhost:3000/data/${bookmarkId}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(
-                {
-                    isPinned: false,
-                    isArchived: false,
-                    toDelete: true
-                }
-            )
-        })
+    // remove object from current dom
+    const curBookmarkToTrashEl = document.querySelector(`#${bookmarkId}`)
+    curBookmarkToTrashEl.remove()
 
-        if (!res.ok) throw new Error(`HTTP error. status: ${res.status}`)
-    } catch (err) {
-        console.log(`There was a problem: ${err}`)
+    // update db
+    updateBookmarkDB(bookmarkId, "PATCH", {isArchived: true, isPinned: false, toDelete: true})
+
+    // update cache
+    for (let bookmark of allBookmarks) {
+        if (bookmark.id == bookmarkId) {
+            bookmark.isArchived = false
+            bookmark.isPinned = false
+            bookmark.toDelete = true
+            break
+        }
     }
 }
 
@@ -75,5 +54,22 @@ async function emptyTrash() {
         } catch (err) {
             console.log(`There was a problem: ${err}`)
         }
+    }
+}
+
+export async function updateBookmarkDB(bookmarkId, method, body) {
+    try {
+        const res = await fetch(`http://localhost:3000/data/${bookmarkId}`, {
+            method: method,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        })
+
+        if (!res.ok) throw new Error(`HTTP error. status: ${res.status}`)
+
+    } catch (err) {
+        console.log(`There was a problem: ${err}`)
     }
 }
