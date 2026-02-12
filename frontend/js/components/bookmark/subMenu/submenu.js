@@ -4,7 +4,7 @@ export function bookmarkSubmenuHandler(e) {
     e.currentTarget.nextElementSibling.classList.toggle('subMenuIsOpen')
 }
 
-export async function archiveBookmarkHandler(bookmarkId) {
+export function archiveBookmarkHandler(bookmarkId) {
     // remove object from current dom
     const curBookmarkToArchiveEl = document.querySelector(`#${bookmarkId}`)
     curBookmarkToArchiveEl.remove()
@@ -22,7 +22,7 @@ export async function archiveBookmarkHandler(bookmarkId) {
     }
 }
 
-export async function trashBookmarkHandler(bookmarkId) {
+export function trashBookmarkHandler(bookmarkId) {
     // remove object from current dom
     const curBookmarkToTrashEl = document.querySelector(`#${bookmarkId}`)
     curBookmarkToTrashEl.remove()
@@ -57,7 +57,7 @@ async function emptyTrash() {
     }
 }
 
-export async function updateBookmarkDB(bookmarkId, method, body) {
+async function updateBookmarkDB(bookmarkId, method, body) {
     try {
         const res = await fetch(`http://localhost:3000/data/${bookmarkId}`, {
             method: method,
