@@ -102,7 +102,7 @@ function buildBookmarkBottomSection(data) {
     pinButtonEl.src = data.isPinned
         ? "js/images/thumbtack-active.svg"
         : "js/images/thumbtack-inactive.svg"
-    pinButtonEl.addEventListener('click', () => pinBookmarkHandler(data.id))
+    pinButtonEl.addEventListener('click', () => pinBookmarkHandler(data))
 
     bookmarkEndEl.append(secParentDiv, pinButtonEl)
 
@@ -162,7 +162,12 @@ function getUnpinnedBookmarks(data) {
     return data.filter(bookmark => !bookmark.isPinned)
 }
 
-export function pinBookmarkHandler(bookmarkId) {
+export function pinBookmarkHandler(bookmarkData) {
+    // disables pin button for archived and trashed bookmarks
+    if (bookmarkData.isArchived) return
+    if (bookmarkData.toDelete) return
+
+    let bookmarkId = bookmarkData.id
     const bookmarkEl = document.querySelector(`#${bookmarkId}`)
     const pinImgEl = bookmarkEl.querySelector(".bookmark-pin-button")
 
@@ -177,11 +182,11 @@ export function pinBookmarkHandler(bookmarkId) {
         pinState = false
     }
 
-    // write to db
-    updatePinState(bookmarkId, pinState)
-
     // remove from top of page and move to unpinned area
     movePinUnpinBookmark(bookmarkId, pinState)
+
+    // write to db
+    updatePinState(bookmarkId, pinState)
 
     // update cache
     updateCache(bookmarkId, "PATCH", {isPinned: pinState})
