@@ -9,11 +9,14 @@ export async function archiveBookmarkHandler(bookmarkId) {
     for (let bookmark of allBookmarks) {
         if (bookmark.id == bookmarkId) {
             bookmark.isArchived = true
+            bookmark.isPinned = false
             break
         }
     }
 
     // remove object from current dom
+    const curBookmarkToArchiveEl = document.querySelector(`#${bookmarkId}`)
+    curBookmarkToArchiveEl.remove()
 
     // update db
     try {
