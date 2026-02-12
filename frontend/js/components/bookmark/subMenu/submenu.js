@@ -31,7 +31,7 @@ export function buildSubMenu(data, bookmarkStatus) {
             let bookmarkTrash = document.createElement('li')
             bookmarkTrash.classList.add("submenu-trash")
             bookmarkTrash.innerText = 'Trash'
-            bookmarkTrash.addEventListener('click', () => trashBookmarkHandler(data.id))
+            bookmarkTrash.addEventListener('click', () => trashBookmarkHandler(data.id, true))
 
             subMenu.append(bookmarkEdit, bookmarkArchive, bookmarkTrash)
             break
@@ -46,7 +46,7 @@ export function buildSubMenu(data, bookmarkStatus) {
             let bookmarkRestore = document.createElement('li')
             bookmarkRestore.classList.add("submenu-restore")
             bookmarkRestore.innerText = 'Restore'
-            bookmarkRestore.addEventListener('click', () => trashBookmarkHandler(data.id))
+            bookmarkRestore.addEventListener('click', () => trashBookmarkHandler(data.id, false))
 
             let bookmarkDelete = document.createElement('li')
             bookmarkDelete.classList.add("submenu-delete")
@@ -66,7 +66,7 @@ export function buildSubMenu(data, bookmarkStatus) {
             let bookmarkTrash = document.createElement('li')
             bookmarkTrash.classList.add("submenu-trash")
             bookmarkTrash.innerText = 'Trash'
-            bookmarkTrash.addEventListener('click', () => trashBookmarkHandler(data.id))
+            bookmarkTrash.addEventListener('click', () => trashBookmarkHandler(data.id, true))
 
             subMenu.append(bookmarkEdit, bookmarkArchive, bookmarkTrash)
             break
@@ -97,20 +97,21 @@ function archiveBookmarkHandler(bookmarkId, isArchived) {
     }
 }
 
-function trashBookmarkHandler(bookmarkId) {
+// handles trashing and restoring bookmarks
+function trashBookmarkHandler(bookmarkId, toDelete) {
     // remove object from current dom
     const curBookmarkToTrashEl = document.querySelector(`#${bookmarkId}`)
     curBookmarkToTrashEl.remove()
 
     // update db
-    updateBookmarkDB(bookmarkId, "PATCH", {isArchived: true, isPinned: false, toDelete: true})
+    updateBookmarkDB(bookmarkId, "PATCH", {isArchived: true, isPinned: false, toDelete: toDelete})
 
     // update cache
     for (let bookmark of allBookmarks) {
         if (bookmark.id == bookmarkId) {
             bookmark.isArchived = false
             bookmark.isPinned = false
-            bookmark.toDelete = true
+            bookmark.toDelete = toDelete
             break
         }
     }
