@@ -48,4 +48,20 @@ export function formateDateForPresentation(date) {
     return strDate
 }
 
-export function updateCache() {}
+export function updateCache(bookmarkId, updateType, bookmarkData) {
+    switch (updateType) {
+        case "PATCH": {
+            let cachedBookmark = allBookmarks.find(bookmark => bookmark.id == bookmarkId)
+
+            if (cachedBookmark){
+                Object.assign(cachedBookmark, {...bookmarkData})
+                break
+            }
+        }
+        case "DELETE": {
+            let updatedCache = allBookmarks.filter(bookmark => bookmark.id !== bookmarkId)
+            allBookmarks = updatedCache
+            break
+        }
+    }
+}

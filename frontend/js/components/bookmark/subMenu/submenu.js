@@ -1,4 +1,4 @@
-import { allBookmarks } from "../util.js"
+import { allBookmarks, updateCache } from "../util.js"
 
 function bookmarkSubmenuHandler(e) {
     e.currentTarget.nextElementSibling.classList.toggle('subMenuIsOpen')
@@ -88,13 +88,10 @@ function archiveBookmarkHandler(bookmarkId, isArchived) {
     updateBookmarkDB(bookmarkId, "PATCH", {isArchived: isArchived, isPinned: false})
 
     // update cache
-    for (let bookmark of allBookmarks) {
-        if (bookmark.id == bookmarkId) {
-            bookmark.isArchived = isArchived
-            bookmark.isPinned = false
-            break
-        }
-    }
+    updateCache(bookmarkId, "PATCH", {
+        isArchived: isArchived,
+        isPinned: false
+    })
 }
 
 // handles trashing and restoring bookmarks
@@ -107,14 +104,11 @@ function trashBookmarkHandler(bookmarkId, toDelete) {
     updateBookmarkDB(bookmarkId, "PATCH", {isArchived: true, isPinned: false, toDelete: toDelete})
 
     // update cache
-    for (let bookmark of allBookmarks) {
-        if (bookmark.id == bookmarkId) {
-            bookmark.isArchived = false
-            bookmark.isPinned = false
-            bookmark.toDelete = toDelete
-            break
-        }
-    }
+    updateCache(bookmarkId, "PATCH", {
+        isArchived: false,
+        isPinned: false,
+        toDelete: toDelete
+    })
 }
 
 function emptyTrash() {
@@ -134,13 +128,7 @@ function deleteBookmarkHandler(bookmarkId) {
     deleteBookmarkPermanently(bookmarkId)
 
     // update cache
-    // for (let bookmark of allBookmarks) {
-    //     if (bookmark.id == bookmarkId) {
-    //         bookmark.isArchived = false
-    //         bookmark.isPinned = false
-    //         break
-    //     }
-    // }
+    updateCache(bookmarkId, "DELETE")
 }
 
 async function deleteBookmarkPermanently(bookmarkId) {
@@ -153,7 +141,6 @@ async function deleteBookmarkPermanently(bookmarkId) {
     } catch (err) {
         console.log(`There was a problem: ${err}`)
     }
-
 }
 
 async function updateBookmarkDB(bookmarkId, method, body) {
