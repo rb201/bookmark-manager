@@ -23,25 +23,3 @@ body {
     border-color: hsla(130, 35%, 80%, 0.304);
     padding: 2em;
 }
-
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* .main-header-title {
-    margin: 0;
-    padding: 1em 0;
-} */
-
-.main-button-sort {
-    color: black;
-    background-color: white;
-    border-width: 1px;
-    border-radius: 4px;
-
-    font-weight: 700;
-    padding: .5em 1em;
-    margin: .5em 0;
-}
