@@ -1,18 +1,23 @@
 import { allBookmarks, updateCache } from "../util.js"
 
-function bookmarkSubmenuHandler(e) {
+function bookmarkSubmenuButtonHandler(e) {
     e.currentTarget.nextElementSibling.classList.toggle('subMenuIsOpen')
+}
+
+function bookmarkSubmenuOpenHandler(e) {
+    e.currentTarget.lastChild.classList.remove('subMenuIsOpen')
 }
 
 export function buildSubMenu(data, bookmarkStatus) {
     let subMenuContainer = document.createElement('div')
     subMenuContainer.classList.add('submenu-container')
+    subMenuContainer.addEventListener('mouseleave', e => bookmarkSubmenuOpenHandler(e))
 
     let buttonSubMenu = document.createElement('button')
     buttonSubMenu.classList.add('bookmark-submenu-button')
     buttonSubMenu.type = "button"
     buttonSubMenu.innerText = "⋮"
-    buttonSubMenu.addEventListener('click', e => bookmarkSubmenuHandler(e))
+    buttonSubMenu.addEventListener('click', e => bookmarkSubmenuButtonHandler(e))
 
     let subMenu = document.createElement('ul')
     subMenu.classList.add('bookmark-submenu')
