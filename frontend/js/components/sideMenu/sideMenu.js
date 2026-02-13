@@ -3,9 +3,12 @@ import { buildBookmarkElement, sortPinnedBookmarks } from "../bookmark/bookmark.
 import { renderBookmarks } from "../bookmark/util.js";
 
 const sideMenuNavEl = document.querySelectorAll('.side-menu-item-container')
+const curActiveNav = []
 
 sideMenuNavEl.forEach(el => {
     el.addEventListener('click', e => sideMenuNavHandler(e))
+
+    if (el.classList.contains("isActive")) curActiveNav.push(el)
 })
 
 function sideMenuNavHandler(e) {
@@ -24,6 +27,10 @@ function sideMenuNavHandler(e) {
             trashNavHandler()
             break
     }
+
+    curActiveNav.pop().classList.remove("isActive")
+    e.currentTarget.classList.add("isActive")
+    curActiveNav.push(e.currentTarget)
 }
 
 function homeNavHandler() {

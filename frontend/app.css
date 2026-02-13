@@ -12,7 +12,7 @@ body {
       "menu header"
       "menu content"
       "menu content";
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 4fr;
 }
 
 .menu {
@@ -45,20 +45,22 @@ body {
     padding: .25em .5em;
 }
 
-.side-menu-item-container:hover {
+.side-menu-item-container.isActive {
     background-color: hsla(130, 35%, 80%, 0.304);
+}
+
+.side-menu-item-container:hover {
+    background-color: hsla(130, 35%, 80%, 0.572);
     cursor: pointer;
 }
 
 .side-menu-item {
     margin: 0;
     padding: .5em .5em;
-
 }
 
 .side-menu-item-home-img {
     height: 25px;
-
 }
 
 .side-menu-item-archive-img {
