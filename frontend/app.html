@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="js/components/bookmark/subMenu/submenu.css">
     <link rel="stylesheet" href="js/components/bookmark/bookmark.css">
     <link rel="stylesheet" href="js/components/addBookmarkForm/form.css">
+    <link rel="stylesheet" href="js/components/main/header/sort.css">
 </head>
 <body>
     <form class="form-add-bookmark" action="">
@@ -69,7 +70,18 @@
 
         <section class="main">
             <div class="main-header">
-                <button class="main-button-sort" type="button">Sort by</button>
+                <div class="main-sort-container">
+                    <img class="main-sort-img" src="js/images/arrow-up-down.svg">
+                    <p class="main-button-sort-text">Sort by</p>
+                    <div class="main-sort-submenu-container">
+                        <ul class="main-sort-submenu">
+                            <li>Name</li>
+                            <li>Most Visited</li>
+                            <li>Recentlt Added</li>
+                            <li>Last Visisted</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="section-bookmarks">
                 <!-- <div class="bookmark">

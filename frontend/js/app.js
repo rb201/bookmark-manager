@@ -1,6 +1,7 @@
 import "./components/search/search.js";
 import "./components/addBookmarkForm/form.js"
 import "./components/sideMenu/sideMenu.js"
+import "./components/main/header/sort.js"
 import { buildBookmarkElement, sortPinnedBookmarks } from "./components/bookmark/bookmark.js";
 import { loadBookmarks, renderBookmarks } from "./components/bookmark/util.js";
 
