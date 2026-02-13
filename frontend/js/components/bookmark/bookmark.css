@@ -1,0 +1,150 @@
+.section-bookmarks {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2em;
+}
+
+.bookmark {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 300px;
+    height: 250px;
+
+    padding: 1em 1em 0 1em;
+
+    background-color: white;
+
+    border-radius: 12px;
+    box-shadow: 0 1px 5px 1px rgba(0, 0, 0, .2);
+}
+
+/* ########### */
+/* TOP SECTION */
+/* ########### */
+
+.bookmark-top {
+    display: flex;
+    align-items: flex-start;
+    column-gap: .5em;
+    justify-content: space-between;
+
+    height: 60px;
+}
+
+.bookmark-info {
+    display: flex;
+    column-gap: .5em;
+}
+
+.bookmark-icon {
+    height: 40px;
+    width: 40px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(202, 202, 202, 0.43);
+    border-radius: 4px;
+}
+
+.bookmark-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.bookmark-url {
+    font-size: 12px;
+    margin: 0;
+}
+
+/* ############## */
+/* MIDDLE SECTION */
+/* ############## */
+
+.bookmark-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 150px;
+}
+
+.bookmark-tags {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: .5em;
+}
+
+.bookmark-tag {
+    padding: .25em .5em;
+    border-radius: 4px;
+    background-color: hsla(130, 35%, 80%, 0.304);
+    font-size: 12px;
+}
+
+/* ############## */
+/* BOTTOM SECTION */
+/* ############## */
+
+.bookmark-end {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 1em;
+}
+
+.bookmark-sec-par {
+    display: flex;
+    column-gap: .5em;
+}
+
+.bookmark-view-info {
+    display: flex;
+    align-items: center;
+}
+
+.bookmark-view-image {
+    height: 17px;
+    width: 17px;
+}
+
+.bookmark-view-count {
+    font-size: 12px;
+    margin: 3px;
+}
+
+.bookmark-last-visit-info {
+    display: flex;
+    align-items: center;
+}
+
+.bookmark-last-visit-image {
+    height: 11px;
+    width: 11px;
+}
+
+.bookmark-last-visit {
+    font-size: 12px;
+    margin: 0 .5em;
+}
+
+.bookmark-pin-button {
+    display: block;
+    margin: 6px;
+    height: 15px;
+    width: 15px;
+}
+
+/* ############## */
+/* HORIZONTAL BAR */
+/* ############## */
+
+.horizon {
+    width: 100%;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.428);
+}

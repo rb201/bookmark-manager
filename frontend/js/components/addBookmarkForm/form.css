@@ -1,0 +1,67 @@
+.form-add-bookmark {
+    display: none;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+
+    position: fixed;
+    inset: 30%;
+    width: 500px;
+
+    background-color: white;
+    /* background-color: hsla(130, 35%, 80%, 0.204); */
+
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 6px;
+
+    padding: 3em;
+
+    box-shadow: 0 1px 7px 3px rgba(0, 0, 0, .3);
+}
+
+.form-add-bookmark.form-open {
+    display: flex;
+    z-index: 100;
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 18px 0;
+}
+
+.form-title {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.form-input {
+    border-style: none;
+    border-bottom: 1px solid black;
+    padding: 1em 0;
+    margin: 0 0 1em 0;
+}
+
+.button-close-form {
+    margin: 0;
+    font-size: 24px;
+    background-color: rgb(224, 238, 234);
+    color: red;
+    padding: .25em .5em;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 8px;
+    border-color: azure;
+    cursor: pointer;
+}
+
+.form-close:hover {
+    background-color: rgba(162, 173, 170, 0.89);;
+}
+
+.form-submit-button {
+    padding: 1em;
+    margin-top: 1em;
+}

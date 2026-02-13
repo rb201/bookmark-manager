@@ -1,0 +1,46 @@
+.interactive-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-color: hsla(130, 35%, 80%, 0.304);
+    grid-area: header;
+    margin: .5em 1em;
+}
+
+.search {
+    padding: .5em 1em;
+    border-radius: 4px;
+    border-color: hsla(130, 35%, 80%, 0.304);
+    border-style: solid;
+}
+
+.nav-funcs {
+    display: flex;
+    align-items: center;
+    column-gap: 1em;
+}
+
+.button-add-bookmark {
+    color: white;
+    background-color: hsl(166, 22%, 23%);
+    border-radius: 6px;
+    border-style: none;
+    padding: .5em 1em;
+    font-size: 16px;
+}
+
+.button-add-bookmark:hover {
+    cursor: pointer;
+    background-color: hsla(166, 22%, 23%, 0.366)
+}
+
+.button-add-bookmark:active {
+    transform: scale(.94);
+}
+
+.profile-image {
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+    cursor: pointer;
+}

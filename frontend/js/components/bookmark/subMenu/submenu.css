@@ -1,0 +1,47 @@
+.submenu-container {
+    display: flex;
+}
+
+.bookmark-submenu-button {
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 8px;
+    padding: .25em .5em;
+    font-size: 20px;
+}
+
+.bookmark-submenu-button:hover {
+    cursor: pointer;
+    background-color: rgb(231, 231, 231);
+}
+
+.bookmark-submenu {
+    display: none;
+    flex-direction: column;
+
+    position: absolute;
+
+    list-style: none;
+
+    background-color: white;
+
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 8px;
+
+    margin: 0 0 0 2.2em;
+    padding: .5em;
+}
+
+.bookmark-submenu.subMenuIsOpen {
+    display: flex;
+}
+
+.bookmark-submenu > li {
+    padding: .25em;
+}
+
+.bookmark-submenu > li:hover {
+    background-color: rgb(99, 49, 49)
+}
