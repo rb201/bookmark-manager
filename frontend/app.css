@@ -30,12 +30,12 @@ body {
     align-items: center;
 }
 
-.main-header-title {
+/* .main-header-title {
     margin: 0;
     padding: 1em 0;
-}
+} */
 
-.button-sort {
+.main-button-sort {
     color: black;
     background-color: white;
     border-width: 1px;
@@ -43,4 +43,5 @@ body {
 
     font-weight: 700;
     padding: .5em 1em;
+    margin: .5em 0;
 }
