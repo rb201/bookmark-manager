@@ -1,0 +1,814 @@
+{
+  "data": [
+    {
+      "id": "unique-id-1",
+      "title": "Frontend Mentor",
+      "url": "https://www.frontendmentor.io/",
+      "description": "Improve your coding skills by building real projects.",
+      "tags": [
+        "coding",
+        "challenge",
+        "frontend"
+      ],
+      "dateAdded": "2025-01-01T12:00:00Z",
+      "lastVisited": "2025-12-25T14:30:00Z",
+      "viewCount": 50,
+      "isPinned": true,
+      "isArchived": false,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=www.frontendmentor.io&sz=128",
+      "toDelete": false
+    },
+    {
+      "id": "unique-id-2",
+      "title": "GitHub",
+      "url": "https://github.com",
+      "description": "Where the world builds software.",
+      "tags": [
+        "git",
+        "code",
+        "version-control"
+      ],
+      "dateAdded": "2025-02-15T09:00:00Z",
+      "lastVisited": "2025-12-24T10:00:00Z",
+      "viewCount": 120,
+      "isPinned": false,
+      "isArchived": false,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=github.com&sz=128",
+      "toDelete": false
+    },
+    {
+      "id": "unique-id-3",
+      "title": "MDN Web Docs",
+      "url": "https://developer.mozilla.org",
+      "description": "Resources for developers, by developers.",
+      "tags": [
+        "docs",
+        "javascript",
+        "html",
+        "css"
+      ],
+      "dateAdded": "2024-11-20T15:00:00Z",
+      "lastVisited": "2025-12-30T08:45:00Z",
+      "viewCount": 200,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=developer.mozilla.org&sz=128",
+      "toDelete": false
+    },
+    {
+      "id": "unique-id-4",
+      "title": "Stack Overflow",
+      "url": "https://stackoverflow.com",
+      "description": "Where developers learn, share, & build careers.",
+      "tags": [
+        "programming",
+        "questions",
+        "community"
+      ],
+      "dateAdded": "2024-10-05T10:30:00Z",
+      "lastVisited": "2025-12-31T16:20:00Z",
+      "viewCount": 350,
+      "isPinned": false,
+      "isArchived": false,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=stackoverflow.com&sz=128",
+      "toDelete": false
+    },
+    {
+      "id": "unique-id-5",
+      "title": "YouTube",
+      "url": "https://www.youtube.com",
+      "description": "Watch, upload, and share videos.",
+      "tags": [
+        "video",
+        "entertainment",
+        "tutorials"
+      ],
+      "dateAdded": "2024-09-12T14:00:00Z",
+      "lastVisited": "2026-01-01T20:00:00Z",
+      "viewCount": 500,
+      "isPinned": false,
+      "isArchived": false,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=www.youtube.com&sz=128",
+      "toDelete": true
+    },
+    {
+      "id": "unique-id-6",
+      "title": "Reddit",
+      "url": "https://www.reddit.com",
+      "description": "The front page of the internet.",
+      "tags": [
+        "social",
+        "news",
+        "community"
+      ],
+      "dateAdded": "2025-03-10T11:00:00Z",
+      "lastVisited": "2025-12-28T12:15:00Z",
+      "viewCount": 180,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=www.reddit.com&sz=128",
+      "toDelete": false
+    },
+    {
+      "id": "unique-id-7",
+      "title": "Dribbble",
+      "url": "https://dribbble.com",
+      "description": "Show and tell for designers.",
+      "tags": [
+        "design",
+        "inspiration",
+        "ui"
+      ],
+      "dateAdded": "2024-12-01T09:45:00Z",
+      "lastVisited": "2025-12-20T13:00:00Z",
+      "viewCount": 90,
+      "isPinned": false,
+      "isArchived": false,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=dribbble.com&sz=128",
+      "toDelete": true
+    },
+    {
+      "id": "unique-id-8",
+      "title": "Awwwards",
+      "url": "https://www.awwwards.com",
+      "description": "The awards for design, creativity and innovation on the Internet.",
+      "tags": [
+        "design",
+        "awards",
+        "web"
+      ],
+      "dateAdded": "2025-04-22T16:20:00Z",
+      "lastVisited": "2025-12-15T10:30:00Z",
+      "viewCount": 75,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=www.awwwards.com&sz=128",
+      "toDelete": false
+    },
+    {
+      "id": "unique-id-9",
+      "title": "CodePen",
+      "url": "https://codepen.io",
+      "description": "Front-end playground & code sharing.",
+      "tags": [
+        "code",
+        "demo",
+        "frontend"
+      ],
+      "dateAdded": "2024-08-18T13:00:00Z",
+      "lastVisited": "2025-12-29T09:00:00Z",
+      "viewCount": 220,
+      "isPinned": false,
+      "isArchived": false,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=codepen.io&sz=128",
+      "toDelete": true
+    },
+    {
+      "id": "unique-id-10",
+      "title": "CSS-Tricks",
+      "url": "https://css-tricks.com",
+      "description": "Tips, tricks, and techniques on CSS.",
+      "tags": [
+        "css",
+        "tutorials",
+        "webdev"
+      ],
+      "dateAdded": "2025-05-07T10:15:00Z",
+      "lastVisited": "2025-12-27T14:45:00Z",
+      "viewCount": 140,
+      "isPinned": false,
+      "isArchived": false,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=css-tricks.com&sz=128",
+      "toDelete": false
+    },
+    {
+      "id": "unique-id-11",
+      "title": "Figma",
+      "url": "https://www.figma.com",
+      "description": "Collaborative interface design tool.",
+      "tags": [
+        "design",
+        "ui",
+        "prototype"
+      ],
+      "dateAdded": "2024-07-30T12:00:00Z",
+      "lastVisited": "2025-12-26T11:20:00Z",
+      "viewCount": 300,
+      "isPinned": false,
+      "isArchived": false,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=www.figma.com&sz=128",
+      "toDelete": false
+    },
+    {
+      "id": "unique-id-13",
+      "title": "Vercel",
+      "url": "https://vercel.com",
+      "description": "Deploy web projects with ease.",
+      "tags": [
+        "hosting",
+        "deployment",
+        "nextjs"
+      ],
+      "dateAdded": "2024-11-11T17:00:00Z",
+      "lastVisited": "2025-12-23T15:30:00Z",
+      "viewCount": 110,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=vercel.com&sz=128",
+      "toDelete": true
+    },
+    {
+      "id": "unique-id-14",
+      "title": "Tailwind CSS",
+      "url": "https://tailwindcss.com",
+      "description": "Utility-first CSS framework.",
+      "tags": [
+        "css",
+        "framework",
+        "ui"
+      ],
+      "dateAdded": "2025-01-25T14:45:00Z",
+      "lastVisited": "2025-12-19T12:00:00Z",
+      "viewCount": 160,
+      "isPinned": false,
+      "isArchived": false,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=tailwindcss.com&sz=128",
+      "toDelete": false
+    },
+    {
+      "id": "unique-id-15",
+      "title": "React",
+      "url": "https://react.dev",
+      "description": "A JavaScript library for building user interfaces.",
+      "tags": [
+        "javascript",
+        "library",
+        "frontend"
+      ],
+      "dateAdded": "2024-10-20T11:30:00Z",
+      "lastVisited": "2025-12-31T13:15:00Z",
+      "viewCount": 400,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=react.dev&sz=128",
+      "toDelete": false
+    },
+    {
+      "id": "unique-id-16",
+      "title": "Netflix",
+      "url": "https://www.netflix.com",
+      "description": "Stream TV shows and movies.",
+      "tags": [
+        "entertainment",
+        "streaming",
+        "video"
+      ],
+      "dateAdded": "2025-07-03T20:00:00Z",
+      "lastVisited": "2025-12-30T22:00:00Z",
+      "viewCount": 280,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=www.netflix.com&sz=128",
+      "toDelete": true
+    },
+    {
+      "id": "unique-id-17",
+      "title": "Spotify",
+      "url": "https://open.spotify.com",
+      "description": "Music streaming service.",
+      "tags": [
+        "music",
+        "audio",
+        "streaming"
+      ],
+      "dateAdded": "2024-09-25T10:00:00Z",
+      "lastVisited": "2026-01-01T18:00:00Z",
+      "viewCount": 320,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=open.spotify.com&sz=128",
+      "toDelete": false
+    },
+    {
+      "id": "unique-id-18",
+      "title": "Unsplash",
+      "url": "https://unsplash.com",
+      "description": "Free high-resolution photos.",
+      "tags": [
+        "images",
+        "stock",
+        "photography"
+      ],
+      "dateAdded": "2025-02-28T13:20:00Z",
+      "lastVisited": "2025-12-22T11:45:00Z",
+      "viewCount": 130,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=unsplash.com&sz=128",
+      "toDelete": false
+    },
+    {
+      "id": "unique-id-19",
+      "title": "Canva",
+      "url": "https://www.canva.com",
+      "description": "Graphic design platform.",
+      "tags": [
+        "design",
+        "graphics",
+        "tools"
+      ],
+      "dateAdded": "2024-12-15T15:30:00Z",
+      "lastVisited": "2025-12-18T14:00:00Z",
+      "viewCount": 95,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=www.canva.com&sz=128",
+      "toDelete": true
+    },
+    {
+      "id": "unique-id-20",
+      "title": "Dev.to",
+      "url": "https://dev.to",
+      "description": "Community for developers.",
+      "tags": [
+        "blog",
+        "community",
+        "webdev"
+      ],
+      "dateAdded": "2025-08-10T09:00:00Z",
+      "lastVisited": "2025-12-25T10:30:00Z",
+      "viewCount": 170,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=dev.to&sz= 128",
+      "toDelete" : false    },
+    {
+      "id": "unique-id-21",
+      "title": "Smashing Magazine",
+      "url": "https://www.smashingmagazine.com",
+      "description": "For web designers and developers.",
+      "tags": [
+        "articles",
+        "design",
+        "webdev"
+      ],
+      "dateAdded": "2024-11-05T12:45:00Z",
+      "lastVisited": "2025-12-21T16:00:00Z",
+      "viewCount": 105,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=www.smashingmagazine.com&sz= 128",
+      "toDelete" : false
+    },
+    {
+      "id": "unique-id-22",
+      "title": "Google Fonts",
+      "url": "https://fonts.google.com",
+      "description": "Free web fonts library.",
+      "tags": [
+        "fonts",
+        "typography",
+        "design"
+      ],
+      "dateAdded": "2025-03-18T14:00:00Z",
+      "lastVisited": "2025-12-17T09:15:00Z",
+      "viewCount": 210,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=fonts.google.com&sz=128",
+      "toDelete": false
+    },
+    {
+      "id": "unique-id-23",
+      "title": "npm",
+      "url": "https://www.npmjs.com",
+      "description": "JavaScript package manager.",
+      "tags": [
+        "javascript",
+        "packages",
+        "node"
+      ],
+      "dateAdded": "2024-10-10T11:00:00Z",
+      "lastVisited": "2025-12-16T13:30:00Z",
+      "viewCount": 190,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=www.npmjs.com&sz= 128",
+      "toDelete" : false
+    },
+    {
+      "id": "unique-id-24",
+      "title": "VS Code",
+      "url": "https://code.visualstudio.com",
+      "description": "Code editor redefined.",
+      "tags": [
+        "editor",
+        "ide",
+        "development"
+      ],
+      "dateAdded": "2025-09-20T10:30:00Z",
+      "lastVisited": "2025-12-14T08:00:00Z",
+      "viewCount": 260,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=code.visualstudio.com&sz=128",
+      "toDelete": false
+    },
+    {
+      "id": "unique-id-25",
+      "title": "Hacker News",
+      "url": "https://news.ycombinator.com",
+      "description": "News for hackers.",
+      "tags": [
+        "news",
+        "tech",
+        "startup"
+      ],
+      "dateAdded": "2024-08-25T16:45:00Z",
+      "lastVisited": "2025-12-13T17:20:00Z",
+      "viewCount": 150,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=news.ycombinator.com&sz= 128",
+      "toDelete" : false
+    },
+    {
+      "id": "unique-id-26",
+      "title": "Behance",
+      "url": "https://www.behance.net",
+      "description": "Showcase & discover creative work.",
+      "tags": [
+        "design",
+        "portfolio",
+        "inspiration"
+      ],
+      "dateAdded": "2025-04-05T13:15:00Z",
+      "lastVisited": "2025-12-12T11:00:00Z",
+      "viewCount": 85,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=www.behance.net&sz= 128",
+      "toDelete" : false
+    },
+    {
+      "id": "unique-id-30",
+      "title": "Wikipedia",
+      "url": "https://www.wikipedia.org",
+      "description": "Free encyclopedia.",
+      "tags": [
+        "knowledge",
+        "reference",
+        "education"
+      ],
+      "dateAdded": "2025-06-20T11:45:00Z",
+      "lastVisited": "2025-12-08T12:15:00Z",
+      "viewCount": 310,
+      "isPinned": true,
+      "isArchived": false,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=www.wikipedia.org&sz= 128",
+      "toDelete" : false
+    },
+    {
+      "id": "unique-id-31",
+      "title": "Khan Academy",
+      "url": "https://www.khanacademy.org",
+      "description": "Free online courses.",
+      "tags": [
+        "education",
+        "learning",
+        "courses"
+      ],
+      "dateAdded": "2024-10-15T14:30:00Z",
+      "lastVisited": "2025-12-07T09:00:00Z",
+      "viewCount": 100,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=www.khanacademy.org&sz=128",
+      "toDelete": true
+    },
+    {
+      "id": "unique-id-32",
+      "title": "Coursera",
+      "url": "https://www.coursera.org",
+      "description": "Online courses from universities.",
+      "tags": [
+        "education",
+        "courses",
+        "certificates"
+      ],
+      "dateAdded": "2025-07-25T10:00:00Z",
+      "lastVisited": "2025-12-06T13:45:00Z",
+      "viewCount": 120,
+      "isPinned": false,
+      "isArchived": false,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=www.coursera.org&sz= 128",
+      "toDelete" : false
+    },
+    {
+      "id": "unique-id-33",
+      "title": "Trello",
+      "url": "https://trello.com",
+      "description": "Project management tool.",
+      "tags": [
+        "productivity",
+        "tasks",
+        "boards"
+      ],
+      "dateAdded": "2024-09-05T16:15:00Z",
+      "lastVisited": "2025-12-05T15:00:00Z",
+      "viewCount": 145,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=trello.com&sz= 128",
+      "toDelete" : false
+    },
+    {
+      "id": "unique-id-34",
+      "title": "Slack",
+      "url": "https://slack.com",
+      "description": "Team communication platform.",
+      "tags": [
+        "communication",
+        "team",
+        "chat"
+      ],
+      "dateAdded": "2025-08-30T12:30:00Z",
+      "lastVisited": "2025-12-04T11:30:00Z",
+      "viewCount": 200,
+      "isPinned": true,
+      "isArchived": false,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=slack.com&sz= 128",
+      "toDelete" : false
+    },
+    {
+      "id": "unique-id-35",
+      "title": "Zoom",
+      "url": "https://zoom.us",
+      "description": "Video conferencing.",
+      "tags": [
+        "video",
+        "meetings",
+        "remote"
+      ],
+      "dateAdded": "2024-12-10T14:00:00Z",
+      "lastVisited": "2025-12-03T17:00:00Z",
+      "viewCount": 165,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=zoom.us&sz= 128",
+      "toDelete" : false
+    },
+    {
+      "id": "unique-id-36",
+      "title": "Adobe XD",
+      "url": "https://www.adobe.com/products/xd.html",
+      "description": "UI/UX design tool.",
+      "tags": [
+        "design",
+        "prototype",
+        "adobe"
+      ],
+      "dateAdded": "2025-01-15T13:45:00Z",
+      "lastVisited": "2025-12-02T10:15:00Z",
+      "viewCount": 80,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=www.adobe.com&sz=128",
+      "toDelete": true
+    },
+    {
+      "id": "unique-id-37",
+      "title": "Framer",
+      "url": "https://www.framer.com",
+      "description": "Interactive design tool.",
+      "tags": [
+        "design",
+        "prototype",
+        "web"
+      ],
+      "dateAdded": "2024-11-25T11:00:00Z",
+      "lastVisited": "2025-12-01T14:30:00Z",
+      "viewCount": 125,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=www.framer.com&sz=128",
+      "toDelete": false
+    },
+    {
+      "id": "unique-id-38",
+      "title": "Webflow",
+      "url": "https://webflow.com",
+      "description": "No-code website builder.",
+      "tags": [
+        "web",
+        "design",
+        "nocode"
+      ],
+      "dateAdded": "2025-02-10T15:30:00Z",
+      "lastVisited": "2025-11-30T12:00:00Z",
+      "viewCount": 135,
+      "isPinned": true,
+      "isArchived": false,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=webflow.com&sz= 128",
+      "toDelete" : false
+    },
+    {
+      "id": "unique-id-39",
+      "title": "Svelte",
+      "url": "https://svelte.dev",
+      "description": "Cybernetically enhanced web apps.",
+      "tags": [
+        "framework",
+        "javascript",
+        "frontend"
+      ],
+      "dateAdded": "2024-10-30T09:15:00Z",
+      "lastVisited": "2025-11-29T16:45:00Z",
+      "viewCount": 155,
+      "isPinned": false,
+      "isArchived": false,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=svelte.dev&sz= 128",
+      "toDelete" : false
+    },
+    {
+      "id": "unique-id-40",
+      "title": "Next.js",
+      "url": "https://nextjs.org",
+      "description": "React framework for production.",
+      "tags": [
+        "react",
+        "framework",
+        "ssr"
+      ],
+      "dateAdded": "2025-03-05T10:45:00Z",
+      "lastVisited": "2025-11-28T13:00:00Z",
+      "viewCount": 240,
+      "isPinned": false,
+      "isArchived": false,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=nextjs.org&sz= 128",
+      "toDelete" : false
+    },
+    {
+      "id": "unique-id-41",
+      "title": "Node.js",
+      "url": "https://nodejs.org",
+      "description": "JavaScript runtime.",
+      "tags": [
+        "javascript",
+        "backend",
+        "server"
+      ],
+      "dateAdded": "2024-09-15T12:20:00Z",
+      "lastVisited": "2025-11-27T11:30:00Z",
+      "viewCount": 185,
+      "isPinned": false,
+      "isArchived": false,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=nodejs.org&sz= 128",
+      "toDelete" : false
+    },
+    {
+      "id": "unique-id-42",
+      "title": "Docker",
+      "url": "https://www.docker.com",
+      "description": "Container platform.",
+      "tags": [
+        "devops",
+        "containers",
+        "deployment"
+      ],
+      "dateAdded": "2025-04-15T14:15:00Z",
+      "lastVisited": "2025-11-26T15:45:00Z",
+      "viewCount": 100,
+      "isPinned": false,
+      "isArchived": false,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=www.docker.com&sz= 128",
+      "toDelete" : false
+    },
+    {
+      "id": "unique-id-43",
+      "title": "AWS",
+      "url": "https://aws.amazon.com",
+      "description": "Cloud computing services.",
+      "tags": [
+        "cloud",
+        "hosting",
+        "infrastructure"
+      ],
+      "dateAdded": "2024-08-05T16:00:00Z",
+      "lastVisited": "2025-11-25T10:00:00Z",
+      "viewCount": 175,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=aws.amazon.com&sz= 128",
+      "toDelete" : false
+    },
+    {
+      "id": "unique-id-44",
+      "title": "DigitalOcean",
+      "url": "https://www.digitalocean.com",
+      "description": "Cloud infrastructure provider.",
+      "tags": [
+        "cloud",
+        "hosting",
+        "servers"
+      ],
+      "dateAdded": "2025-05-20T11:30:00Z",
+      "lastVisited": "2025-11-24T14:20:00Z",
+      "viewCount": 90,
+      "isPinned": false,
+      "isArchived": false,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=www.digitalocean.com&sz= 128",
+      "toDelete" : false
+    },
+    {
+      "id": "unique-id-45",
+      "title": "Heroku",
+      "url": "https://www.heroku.com",
+      "description": "Platform as a service.",
+      "tags": [
+        "paas",
+        "deployment",
+        "hosting"
+      ],
+      "dateAdded": "2024-07-10T13:00:00Z",
+      "lastVisited": "2025-11-23T12:45:00Z",
+      "viewCount": 110,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=www.heroku.com&sz= 128",
+      "toDelete" : false
+    },
+    {
+      "id": "unique-id-46",
+      "title": "Firebase",
+      "url": "https://firebase.google.com",
+      "description": "Backend services by Google.",
+      "tags": [
+        "backend",
+        "database",
+        "google"
+      ],
+      "dateAdded": "2025-06-05T15:45:00Z",
+      "lastVisited": "2025-11-22T16:00:00Z",
+      "viewCount": 200,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=firebase.google.com&sz= 128",
+      "toDelete" : false
+    },
+    {
+      "id": "unique-id-47",
+      "title": "Supabase",
+      "url": "https://supabase.com",
+      "description": "Open-source Firebase alternative.",
+      "tags": [
+        "backend",
+        "database",
+        "postgres"
+      ],
+      "dateAdded": "2024-12-25T10:30:00Z",
+      "lastVisited": "2025-11-21T09:30:00Z",
+      "viewCount": 130,
+      "isPinned": false,
+      "isArchived": true,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=supabase.com&sz= 128",
+      "toDelete" : false
+    },
+    {
+      "id": "unique-id-48",
+      "title": "Postman",
+      "url": "https://www.postman.com",
+      "description": "API development platform.",
+      "tags": [
+        "api",
+        "testing",
+        "tools"
+      ],
+      "dateAdded": "2025-01-10T12:15:00Z",
+      "lastVisited": "2025-11-20T13:15:00Z",
+      "viewCount": 160,
+      "isPinned": true,
+      "isArchived": false,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=www.postman.com&sz= 128",
+      "toDelete" : false
+    },
+    {
+      "id": "unique-id-50",
+      "title": "TypeScript",
+      "url": "https://www.typescriptlang.org",
+      "description": "Typed superset of JavaScript.",
+      "tags": [
+        "javascript",
+        "types",
+        "language"
+      ],
+      "dateAdded": "2025-02-20T09:00:00Z",
+      "lastVisited": "2025-11-18T15:30:00Z",
+      "viewCount": 220,
+      "isPinned": true,
+      "isArchived": false,
+      "imgUrl": "https://www.google.com/s2/favicons?domain=www.typescriptlang.org&sz= 128",
+      "toDelete" : false
+    }
+  ]
+}
