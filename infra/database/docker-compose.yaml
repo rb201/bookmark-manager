@@ -1,0 +1,23 @@
+services:
+
+  db:
+    image: postgres:18-alpine
+    container_name: postgres
+    restart: always
+    # set shared memory limit when using docker compose
+    shm_size: 128mb
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: bookmark_manager
+    volumes:
+      - ./db:/var/lib/postgresql
+
+  adminer:
+    container_name: dbui
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
