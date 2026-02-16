@@ -90,7 +90,7 @@ function archiveBookmarkHandler(bookmarkId, isArchived) {
     curBookmarkToArchiveEl.remove()
 
     // update db
-    updateBookmarkDB(bookmarkId, "PATCH", {isArchived: isArchived, isPinned: false})
+    updateBookmarkDB(bookmarkId, "PATCH", {is_archived: isArchived, is_pinned: false})
 
     // update cache
     updateCache(bookmarkId, "PATCH", {

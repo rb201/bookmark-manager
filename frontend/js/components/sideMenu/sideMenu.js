@@ -40,13 +40,13 @@ function homeNavHandler() {
 }
 
 function archiveNavHandler() {
-    let archivedBookmarks = allBookmarks.filter(bookmark => bookmark.isArchived)
+    let archivedBookmarks = allBookmarks.filter(bookmark => bookmark.is_archived)
 
     buildAndRender(archivedBookmarks, "Archived")
 }
 
 function trashNavHandler() {
-    let trashedBookmarks = allBookmarks.filter(bookmark => bookmark.toDelete)
+    let trashedBookmarks = allBookmarks.filter(bookmark => bookmark.to_delete)
 
     buildAndRender(trashedBookmarks, "Trashed")
 }

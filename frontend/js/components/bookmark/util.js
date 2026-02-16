@@ -69,9 +69,11 @@ export function updateCache(bookmarkId, updateType, bookmarkData) {
 
 export async function deleteBookmarkPermanently(bookmarkId) {
     try {
-        const res = await fetch(`http://localhost:3000/data/${bookmarkId}`, {
+        // const res = await fetch(`http://localhost:3000/data/${bookmarkId}`, { // json-server
+        const res = await fetch(`http://localhost:3001/bookmarks/${bookmarkId}`, {
             method: "DELETE",
         })
+        console.log('deleting')
 
         if (!res.ok) throw new Error(`HTTP error. status: ${res.status}`)
     } catch (err) {
@@ -80,8 +82,11 @@ export async function deleteBookmarkPermanently(bookmarkId) {
 }
 
 export async function updateBookmarkDB(bookmarkId, method, body) {
+    console.log('patching')
+    console.log(body)
     try {
-        const res = await fetch(`http://localhost:3000/data/${bookmarkId}`, {
+        // const res = await fetch(`http://localhost:3000/data/${bookmarkId}`, { // json-server
+        const res = await fetch(`http://localhost:3001/bookmarks/${bookmarkId}`, {
             method: method,
             headers: {
                 'Content-Type': 'application/json'
