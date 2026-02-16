@@ -66,3 +66,32 @@ export function updateCache(bookmarkId, updateType, bookmarkData) {
         }
     }
 }
+
+export async function deleteBookmarkPermanently(bookmarkId) {
+    try {
+        const res = await fetch(`http://localhost:3000/data/${bookmarkId}`, {
+            method: "DELETE",
+        })
+
+        if (!res.ok) throw new Error(`HTTP error. status: ${res.status}`)
+    } catch (err) {
+        console.log(`There was a problem: ${err}`)
+    }
+}
+
+export async function updateBookmarkDB(bookmarkId, method, body) {
+    try {
+        const res = await fetch(`http://localhost:3000/data/${bookmarkId}`, {
+            method: method,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        })
+
+        if (!res.ok) throw new Error(`HTTP error. status: ${res.status}`)
+
+    } catch (err) {
+        console.log(`There was a problem: ${err}`)
+    }
+}
