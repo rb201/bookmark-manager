@@ -12,29 +12,29 @@ function buildBookmarkTopSection(data, bookmarkStatus) {
     // Nested in bookmark-top
     let bookmarkInfoEl = document.createElement('div')
     bookmarkInfoEl.classList.add('bookmark-info')
-    
+
     // Nested in bookmark-info
     let imgEl = document.createElement('img')
     imgEl.classList.add("bookmark-icon")
-    imgEl.src = data.imgUrl
-    
+    imgEl.src = data.img_url
+
     // Nested in bookmark-info
     let newDivInBookmarkTopEl = document.createElement('div')
     let titleEl = document.createElement('p')
     titleEl.classList.add("bookmark-title")
     titleEl.innerText = data.title
-    
+
     let urlEl = document.createElement('p')
     urlEl.classList.add("bookmark-url")
     urlEl.innerText = data.url
-    
+
     newDivInBookmarkTopEl.append(titleEl, urlEl)
     bookmarkInfoEl.append(imgEl, newDivInBookmarkTopEl)
 
     let subMenu = buildSubMenu(data, bookmarkStatus)
 
     bookmarkTopEl.append(bookmarkInfoEl, subMenu)
-    
+
     return bookmarkTopEl
 }
 
@@ -78,7 +78,7 @@ function buildBookmarkBottomSection(data) {
 
     let viewEl = document.createElement('p')
     viewEl.classList.add('bookmark-view-count')
-    viewEl.innerText = data.viewCount
+    viewEl.innerText = data.view_count
 
     viewDiv.append(viewImgEl, viewEl)
 
@@ -91,7 +91,7 @@ function buildBookmarkBottomSection(data) {
 
     let lastVisitEl = document.createElement('p')
     lastVisitEl.classList.add('bookmark-last-visit')
-    lastVisitEl.innerText = formateDateForPresentation(data.lastVisited)
+    lastVisitEl.innerText = formateDateForPresentation(data.last_visited)
 
     lastVisitDiv.append(timeImage, lastVisitEl)
 
@@ -99,7 +99,7 @@ function buildBookmarkBottomSection(data) {
 
     let pinButtonEl = document.createElement('img')
     pinButtonEl.classList.add('bookmark-pin-button')
-    pinButtonEl.src = data.isPinned
+    pinButtonEl.src = data.is_pinned
         ? "js/images/thumbtack-active.svg"
         : "js/images/thumbtack-inactive.svg"
     pinButtonEl.addEventListener('click', () => pinBookmarkHandler(data))
@@ -123,7 +123,7 @@ export function buildBookmarkElement(data, bookmarkStatus = "active") {
 
         let hrTEl = document.createElement('hr')
         hrTEl.classList.add('horizon')
-        
+
         let hrMEl = document.createElement('hr')
         hrMEl.classList.add('horizon')
 
@@ -132,7 +132,7 @@ export function buildBookmarkElement(data, bookmarkStatus = "active") {
         bookmarkEl.append(bookmarkMiddleSection)
         bookmarkEl.append(hrMEl)
         bookmarkEl.append(bookmarkBottomSection)
-        
+
         bookmarks.push(bookmarkEl)
     })
 
@@ -155,17 +155,17 @@ function getNonArchivedToDeleteBookmarks(data) {
 }
 
 function getPinnedBookmarks(data) {
-    return data.filter(bookmark => bookmark.isPinned)
+    return data.filter(bookmark => bookmark.is_pinned)
 }
 
 function getUnpinnedBookmarks(data) {
-    return data.filter(bookmark => !bookmark.isPinned)
+    return data.filter(bookmark => !bookmark.is_pinned)
 }
 
 export function pinBookmarkHandler(bookmarkData) {
     // disables pin button for archived and trashed bookmarks
-    if (bookmarkData.isArchived) return
-    if (bookmarkData.toDelete) return
+    if (bookmarkData.is_archived) return
+    if (bookmarkData.to_delete) return
 
     let bookmarkId = bookmarkData.id
     const bookmarkEl = document.querySelector(`#${bookmarkId}`)
