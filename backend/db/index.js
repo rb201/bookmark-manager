@@ -1,7 +1,4 @@
 import { Pool } from 'pg'
-import dotenv from 'dotenv'
-
-dotenv.config()
 
 const host = process.env.POSTGRES_HOST
 const user = process.env.POSTGRES_USER
