@@ -4,7 +4,6 @@ export let allBookmarks = [];
 export let bookmarksCount = 0
 
 export async function loadBookmarks() {
-    // const res = await fetch('http://localhost:3000/data') // JSON-server
     const res = await fetch('http://localhost:3001/bookmarks') //express
 
     if(!res.ok) throw new Error(`Error: ${res.status}`)
@@ -69,7 +68,6 @@ export function updateCache(bookmarkId, updateType, bookmarkData) {
 
 export async function deleteBookmarkPermanently(bookmarkId) {
     try {
-        // const res = await fetch(`http://localhost:3000/data/${bookmarkId}`, { // json-server
         const res = await fetch(`http://localhost:3001/bookmarks/${bookmarkId}`, {
             method: "DELETE",
         })
@@ -82,10 +80,7 @@ export async function deleteBookmarkPermanently(bookmarkId) {
 }
 
 export async function updateBookmarkDB(bookmarkId, method, body) {
-    console.log('patching')
-    console.log(body)
     try {
-        // const res = await fetch(`http://localhost:3000/data/${bookmarkId}`, { // json-server
         const res = await fetch(`http://localhost:3001/bookmarks/${bookmarkId}`, {
             method: method,
             headers: {
