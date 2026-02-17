@@ -90,7 +90,11 @@ function archiveBookmarkHandler(bookmarkId, isArchived) {
     curBookmarkToArchiveEl.remove()
 
     // update db
-    updateBookmarkDB(bookmarkId, "PATCH", {is_archived: isArchived, is_pinned: false})
+    updateBookmarkDB(bookmarkId, "PATCH", {
+        is_archived: isArchived,
+        is_pinned: false,
+        to_delete: false
+    })
 
     // update cache
     updateCache(bookmarkId, "PATCH", {
@@ -106,7 +110,11 @@ function trashBookmarkHandler(bookmarkId, toDelete) {
     curBookmarkToTrashEl.remove()
 
     // update db
-    updateBookmarkDB(bookmarkId, "PATCH", {isArchived: true, isPinned: false, toDelete: toDelete})
+    updateBookmarkDB(bookmarkId, "PATCH", {
+        isArchived: true,
+        isPinned: false,
+        toDelete: toDelete
+    })
 
     // update cache
     updateCache(bookmarkId, "PATCH", {

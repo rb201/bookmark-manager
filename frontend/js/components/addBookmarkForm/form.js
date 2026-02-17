@@ -26,7 +26,6 @@ function closeBookmarkButtonHandler() {
 
 function submitBookmarkFormHandler(e) {
     e.preventDefault()
-    // render
 
     const title = document.getElementById("form-title").value
     const url = document.getElementById("form-url").value
@@ -38,6 +37,8 @@ function submitBookmarkFormHandler(e) {
     if (!isUrlValid(url)) {
         return
     }
+
+    const newId = generateNewId()
     
     const bookmarkObj = createNewBookmark(newId, title, url, desc, tags, imageUrl)
 
@@ -48,10 +49,10 @@ function submitBookmarkFormHandler(e) {
 
 function generateNewId() {
     return `unique-id-${bookmarksCount}`
+    // return `unique-id-12`
 }
 
 function createNewBookmark(id, title, url, desc, tags, imageUrl) {
-    const newId = generateNewId()
 
     const today = new Date().toISOString();
 
@@ -66,22 +67,23 @@ function createNewBookmark(id, title, url, desc, tags, imageUrl) {
         dateAdded: today,
         lastVisited: "",
         viewCount: 0,
-        isPinned: true,
+        isPinned: false,
         isArchived: false,
         imageUrl: imageUrl,
+        toDelete: false
     }
 
     return bookmarkObj
 }
 
-async function submitBookmark(formData) {
+async function submitBookmark(data) {
     try {
-        const res = await fetch('http://localhost:3000/data', {
+        const res = await fetch(`http://localhost:3001/bookmarks/${data.id}`, {
             method: "POST",
             headers: {
                 'Content-Type': "application/json",
             },
-            body: JSON.stringify(formData)
+            body: JSON.stringify(data)
         })
 
         if (!res.ok) throw new Error("error posting " + res.status)
@@ -97,8 +99,6 @@ function isUrlValid(urlData) {
         console.log(urlData)
         const url = new URL(urlData)
 
-        console.log(url)
-        
         if (!url.hostname.includes(".")) {
             alert("Make sure hostname is a FQDN")
             return false
