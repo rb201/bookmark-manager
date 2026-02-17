@@ -1,10 +1,13 @@
 import { Pool } from 'pg'
+import dotenv from 'dotenv'
 
-const host = $POSTGRES_HOST
-const user = $POSTGRES_USER
-const userPassword = $POSTGRES_PASSWORD
+dotenv.config()
+
+const host = process.env.POSTGRES_HOST
+const user = process.env.POSTGRES_USER
+const userPassword = process.env.POSTGRES_PASSWORD
 const port = 5432
-const database = $POSTGRES_DB
+const database = process.env.POSTGRES_DB
 
 const pool = new Pool({
     host: host,
