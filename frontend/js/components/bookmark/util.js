@@ -4,7 +4,7 @@ export let allBookmarks = [];
 export let bookmarksCount = 0
 
 export async function loadBookmarks() {
-    const res = await fetch('http://localhost:3001/bookmarks') //express
+    const res = await fetch('http://localhost:3001/bookmarks')
 
     if(!res.ok) throw new Error(`Error: ${res.status}`)
 

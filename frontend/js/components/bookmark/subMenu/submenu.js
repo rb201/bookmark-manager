@@ -99,7 +99,8 @@ function archiveBookmarkHandler(bookmarkId, isArchived) {
     // update cache
     updateCache(bookmarkId, "PATCH", {
         isArchived: isArchived,
-        isPinned: false
+        isPinned: false,
+        toDelete: false
     })
 }
 
@@ -111,9 +112,9 @@ function trashBookmarkHandler(bookmarkId, toDelete) {
 
     // update db
     updateBookmarkDB(bookmarkId, "PATCH", {
-        isArchived: true,
-        isPinned: false,
-        toDelete: toDelete
+        is_archived: false,
+        is_pinned: false,
+        to_delete: toDelete
     })
 
     // update cache

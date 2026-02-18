@@ -238,12 +238,12 @@ function movePinUnpinBookmark(bookmarkId, pinState) {
 
 async function updatePinState(bookmarkId, pinState) {
     try {
-        const res = await fetch(`http://localhost:3000/data/${bookmarkId}`, {
+        const res = await fetch(`http://localhost:3001/bookmarks/${bookmarkId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({isPinned: pinState})
+            body: JSON.stringify({is_pinned: pinState})
         })
 
         if (!res.ok) throw new Error(`HTTP error. status: ${res.status}`)
