@@ -32,18 +32,35 @@ app.get("/bookmarks", async (req, res) => {
 
 app.patch("/bookmarks/:bookmarkId", async (req, res) => {
     const bookmarkId = req.params.bookmarkId
-    const isArchived = req.body.is_archived
-    const isPinned = req.body.is_pinned
-    const toDelete = req.body.to_delete
 
-    console.log("patching bookmark")
+    // query builder
+    let i = 1
+    let setQuery = "SET "
+    let  values = []
+    let reqBody = Object.entries(req.body)
+    for (let [k, v] of reqBody) {
+        let colName = k.toString()
+        let setCol = `${colName} = $${i}`
+
+        setQuery += setCol
+
+        values.push(v)
+
+        if (i == reqBody.length) {
+            break
+        }
+
+        setQuery += ", "
+
+        i++
+    }
 
     const dbRes = await query(
         `UPDATE bookmarks
-        SET is_pinned = $1, is_archived = $2, to_delete = $3
-        WHERE bookmarkId = $4`, [isPinned, isArchived, toDelete, bookmarkId] 
+        ${setQuery}
+        WHERE id = $${reqBody.length + 1}`, [...values, bookmarkId]
     )
-    console.log(dbRes)
+
     res.sendStatus(200)
 })
 
