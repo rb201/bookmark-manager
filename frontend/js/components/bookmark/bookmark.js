@@ -151,7 +151,7 @@ export function sortPinnedBookmarks(data) {
 }
 
 function getNonArchivedToDeleteBookmarks(data) {
-    return data.filter(bookmark => !bookmark.isArchived && !bookmark.toDelete)
+    return data.filter(bookmark => !bookmark.is_archived && !bookmark.to_delete)
 }
 
 function getPinnedBookmarks(data) {
@@ -189,7 +189,7 @@ export function pinBookmarkHandler(bookmarkData) {
     updatePinState(bookmarkId, pinState)
 
     // update cache
-    updateCache(bookmarkId, "PATCH", {isPinned: pinState})
+    updateCache(bookmarkId, "PATCH", {is_pinned: pinState})
 }
 
 function movePinUnpinBookmark(bookmarkId, pinState) {

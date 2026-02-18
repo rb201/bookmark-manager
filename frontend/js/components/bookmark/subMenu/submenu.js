@@ -98,9 +98,9 @@ function archiveBookmarkHandler(bookmarkId, isArchived) {
 
     // update cache
     updateCache(bookmarkId, "PATCH", {
-        isArchived: isArchived,
-        isPinned: false,
-        toDelete: false
+        is_archived: isArchived,
+        is_pinned: false,
+        to_delete: false
     })
 }
 
@@ -119,14 +119,14 @@ function trashBookmarkHandler(bookmarkId, toDelete) {
 
     // update cache
     updateCache(bookmarkId, "PATCH", {
-        isArchived: false,
-        isPinned: false,
-        toDelete: toDelete
+        is_archived: false,
+        is_pinned: false,
+        to_delete: toDelete
     })
 }
 
 function emptyTrash() {
-    let toBeDeletedBookmarks = allBookmarks.filter(bookmark => bookmark.toDelete)
+    let toBeDeletedBookmarks = allBookmarks.filter(bookmark => bookmark.to_delete)
 
     for (let bookmark of toBeDeletedBookmarks){
         deleteBookmarkHandler(bookmark.id)
