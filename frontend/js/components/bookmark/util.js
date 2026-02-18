@@ -20,7 +20,7 @@ export async function loadBookmarks() {
 export function renderOneBookmark(data){
     const fragement = document.createDocumentFragment()
 
-    fragement.append(bookmark)
+    fragement.append(data)
 
     sectionBookmarksEl.append(fragement)
 }

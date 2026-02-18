@@ -1,4 +1,5 @@
-import { bookmarksCount } from "../bookmark/util.js"
+import { bookmarksCount, renderOneBookmark } from "../bookmark/util.js"
+import { buildBookmarkElement } from "../bookmark/bookmark.js"
 
 const openBookmarkFormButton = document.querySelector('.button-add-bookmark')
 openBookmarkFormButton.addEventListener('click', openBookmarkFormHandler)
@@ -42,14 +43,18 @@ function submitBookmarkFormHandler(e) {
     
     const bookmarkObj = createNewBookmark(newId, title, url, desc, tags, imageUrl)
 
+    const bookmarkEl = buildBookmarkElement([bookmarkObj])
+
+    const bookmark = bookmarkEl.pop()
+
     submitBookmark(bookmarkObj)
 
-    // render
+    renderOneBookmark(bookmark)
 }
 
 function generateNewId() {
-    return `unique-id-${bookmarksCount}`
-    // return `unique-id-12`
+    // return `unique-id-${bookmarksCount}`
+    return `unique-id-12`
 }
 
 function createNewBookmark(id, title, url, desc, tags, imageUrl) {
@@ -62,15 +67,15 @@ function createNewBookmark(id, title, url, desc, tags, imageUrl) {
         id: id,
         title: title,
         url: url,
-        desc: desc,
+        description: desc,
         tags: listOfTags,
-        dateAdded: today,
-        lastVisited: "",
-        viewCount: 0,
-        isPinned: false,
-        isArchived: false,
-        imageUrl: imageUrl,
-        toDelete: false
+        date_added: today,
+        last_visited: null,
+        view_count: 0,
+        is_pinned: false,
+        is_archived: false,
+        image_url: imageUrl,
+        to_delete: false
     }
 
     return bookmarkObj
