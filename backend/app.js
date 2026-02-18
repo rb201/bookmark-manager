@@ -33,6 +33,8 @@ app.get("/bookmarks", async (req, res) => {
 app.patch("/bookmarks/:bookmarkId", async (req, res) => {
     const bookmarkId = req.params.bookmarkId
 
+    console.log('patching', req.params.bookmarkId, req.body)
+
     // query builder
     let i = 1
     let setQuery = "SET "
@@ -69,14 +71,14 @@ app.post("/bookmarks/:bookmarkId", async (req, res) => {
     const title = req.body.title
     const url = req.body.url
     const desc = req.body.desc
-    const tags = req.body.listOfTags
+    const tags = req.body.tags
     const dateAdded = req.body.today
-    const lastVisited = req.body.lastVisited
-    const viewCount = req.body.viewCount
-    const isPinned = req.body.isPinned
-    const isArchived = req.body.isArchived
-    const imageUrl = req.body.imageUrl
-    const toDelete = req.body.toDelete
+    const lastVisited = req.body.last_visited
+    const viewCount = req.body.view_count
+    const isPinned = req.body.is_pinned
+    const isArchived = req.body.is_archived
+    const imageUrl = req.body.image_url
+    const toDelete = req.body.to_delete
 
     const dbres = await query(
         `INSERT INTO bookmarks (
@@ -85,8 +87,7 @@ app.post("/bookmarks/:bookmarkId", async (req, res) => {
         [bookmarkId, title, url, desc, tags, dateAdded, lastVisited, viewCount, isPinned, isArchived, imageUrl, toDelete]
     )
 
-    console.log("putting bookarm into db")
-    res.sendStatus(200).send('written to db')
+    res.sendStatus(200)
 })
 
 app.listen(port, () => {
