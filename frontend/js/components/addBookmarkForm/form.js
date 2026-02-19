@@ -1,4 +1,4 @@
-import { bookmarksCount, renderOneBookmark } from "../bookmark/util.js"
+import { bookmarksCount, networkName, renderOneBookmark } from "../bookmark/util.js"
 import { buildBookmarkElement } from "../bookmark/bookmark.js"
 
 const openBookmarkFormButton = document.querySelector('.button-add-bookmark')
@@ -83,7 +83,7 @@ function createNewBookmark(id, title, url, desc, tags, imageUrl) {
 
 async function submitBookmark(data) {
     try {
-        const res = await fetch(`http://localhost:3001/bookmarks/${data.id}`, {
+        const res = await fetch(`http://${networkName}:3001/bookmarks/${data.id}`, {
             method: "POST",
             headers: {
                 'Content-Type': "application/json",

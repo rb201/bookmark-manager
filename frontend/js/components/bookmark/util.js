@@ -2,9 +2,10 @@ const sectionBookmarksEl = document.querySelector('.section-bookmarks')
 
 export let allBookmarks = [];
 export let bookmarksCount = 0
+export const networkName = process.env.NETWORK_NAME ? process.env.NETWORK_NAME : "localhost"
 
 export async function loadBookmarks() {
-    const res = await fetch('http://localhost:3001/bookmarks')
+    const res = await fetch(`http://${networkName}:3001/bookmarks`)
 
     if(!res.ok) throw new Error(`Error: ${res.status}`)
 
@@ -68,7 +69,7 @@ export function updateCache(bookmarkId, updateType, bookmarkData) {
 
 export async function deleteBookmarkPermanently(bookmarkId) {
     try {
-        const res = await fetch(`http://localhost:3001/bookmarks/${bookmarkId}`, {
+        const res = await fetch(`http://${networkName}:3001/bookmarks/${bookmarkId}`, {
             method: "DELETE",
         })
         console.log('deleting')
@@ -81,7 +82,7 @@ export async function deleteBookmarkPermanently(bookmarkId) {
 
 export async function updateBookmarkDB(bookmarkId, method, body) {
     try {
-        const res = await fetch(`http://localhost:3001/bookmarks/${bookmarkId}`, {
+        const res = await fetch(`http://${networkName}:3001/bookmarks/${bookmarkId}`, {
             method: method,
             headers: {
                 'Content-Type': 'application/json'
