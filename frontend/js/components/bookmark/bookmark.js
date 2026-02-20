@@ -1,6 +1,6 @@
 import { allBookmarks } from "./util.js"
 import { buildSubMenu } from "./subMenu/submenu.js"
-import { formateDateForPresentation, networkName, updateCache } from "./util.js"
+import { formateDateForPresentation, updateCache } from "./util.js"
 
 // sorted sequence of pinned then unpinned bookmarks
 let sortedBookmarks = []
@@ -238,7 +238,7 @@ function movePinUnpinBookmark(bookmarkId, pinState) {
 
 async function updatePinState(bookmarkId, pinState) {
     try {
-        const res = await fetch(`http://${networkName}:3001/bookmarks/${bookmarkId}`, {
+        const res = await fetch(`/bookmarks/${bookmarkId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"

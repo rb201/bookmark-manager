@@ -5,8 +5,6 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     container_name: bookmark_manager_ui
-    environment:
-      - NETWORK_NAME=bookmark_manager_api
     ports:
       - 8080:80
     depends_on:

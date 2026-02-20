@@ -4,11 +4,7 @@ import { query } from './db/index.js';
 
 const app = express()
 app.use(express.json())
-app.use(cors()) // tmp
-// const allowedOrigins = ['http://localhost:3001'];
-// app.use(cors({
-//   origin: allowedOrigins
-// }));
+// app.use(cors()) // tmp
 
 const port = 3001
 
