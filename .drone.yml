@@ -1,0 +1,140 @@
+---
+kind: pipeline
+type: docker
+name: bookmark-manager
+
+steps:
+- name: build_backend_image
+  image: docker:dind
+  volumes:
+    - name: dockersock
+      path: /var/run/docker.sock
+  environment:
+    USERNAME:
+      from_secret: GITEA_USERNAME
+    PASSWORD:
+      from_secret: GITEA_PASSWORD
+  commands:
+    - echo "$PASSWORD" | docker login --username "$USERNAME" gitea.jrzylab.xyz --password-stdin
+    - cd backend/
+    - VERSION=`cat VERSION`
+    - docker build -t gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark-manager-api:"$VERSION"-dev .
+    - docker tag gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark-manager-api:"$VERSION"-dev gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark-manager-api:latest-dev
+    - docker push gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark-manager-api:"$VERSION"-dev
+    - docker push gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark-manager-api:latest-dev
+
+- name: build_frontend_image
+  image: docker:dind
+  volumes:
+    - name: dockersock
+      path: /var/run/docker.sock
+  environment:
+    USERNAME:
+      from_secret: GITEA_USERNAME
+    PASSWORD:
+      from_secret: GITEA_PASSWORD
+  commands:
+    - echo "$PASSWORD" | docker login --username "$USERNAME" gitea.jrzylab.xyz --password-stdin
+    - cd frontend/weather-app/
+    - VERSION=`cat VERSION`
+    - docker build -t gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark-manager-ui:"$VERSION"-dev .
+    - docker tag gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark-manager-ui:"$VERSION"-dev gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark-manager-ui:latest-dev
+    - docker push gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark-manager-ui:"$VERSION"-dev
+    - docker push gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark-manager-ui:latest-dev
+
+# - name: deploy_backend
+#   image: alpine/k8s:1.33.1
+#   environment:
+#     KUBECONFIG64:
+#       from_secret: KUBECONFIG64
+#   commands:
+#     - cd backend/
+#     - VERSION=`cat VERSION`
+#     - cd /tmp
+#     - echo $KUBECONFIG64 > /tmp/kubeconfig64
+#     - base64 -d /tmp/kubeconfig64 > /tmp/kubeconfig
+#     - kubectl --kubeconfig /tmp/kubeconfig -n dev set image deployment/bookmark-manager-api bookmark-manager-api=gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark-manager-api:"$VERSION"-dev
+#     - kubectl --kubeconfig /tmp/kubeconfig -n dev rollout status deployment/bookmark-manager-api
+#   depends_on:
+#     - build_backend_image
+#     - build_frontend_image
+
+# - name: deploy_frontend
+#   image: alpine/k8s:1.33.1
+#   environment:
+#     KUBECONFIG64:
+#       from_secret: KUBECONFIG64
+#   commands:
+#     - cd frontend/weather-app/
+#     - VERSION=`cat VERSION`
+#     - cd /tmp
+#     - echo $KUBECONFIG64 > /tmp/kubeconfig64
+#     - base64 -d /tmp/kubeconfig64 > /tmp/kubeconfig
+#     - kubectl --kubeconfig /tmp/kubeconfig -n dev set image deployment/bookmark-manager-ui bookmark-manager-ui=gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark-manager-ui:"$VERSION"-dev
+#     - kubectl --kubeconfig /tmp/kubeconfig -n dev rollout status deployment/bookmark-manager-ui
+#   depends_on:
+#     - build_backend_image
+#     - build_frontend_image
+
+volumes:
+- name: dockersock
+  host:
+    path: /var/run/docker.sock
+
+trigger:
+  branch:
+    - development
+  event:
+    - push
+    - custom
+
+# ---
+# kind: pipeline
+# type: docker
+# name: weather-app-images-to-prod
+
+# steps:
+# - name: tag_backend_image_for_prod
+#   image: docker:dind
+#   volumes:
+#     - name: dockersock
+#       path: /var/run/docker.sock
+#   environment:
+#     USERNAME:
+#       from_secret: GITEA_USERNAME
+#     PASSWORD:
+#       from_secret: GITEA_PASSWORD
+#   commands:
+#     - echo "$PASSWORD" | docker login --username "$USERNAME" gitea.jrzylab.xyz --password-stdin
+#     - cd backend/
+#     - VERSION=`cat VERSION`
+#     - docker tag gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark-manager-api:"$VERSION"-dev gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark-manager-api:"$VERSION"
+#     - docker push gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark-manager-api:"$VERSION"
+
+# - name: tag_frontend_image_for_prod
+#   image: docker:dind
+#   volumes:
+#     - name: dockersock
+#       path: /var/run/docker.sock
+#   environment:
+#     USERNAME:
+#       from_secret: GITEA_USERNAME
+#     PASSWORD:
+#       from_secret: GITEA_PASSWORD
+#   commands:
+#     - echo "$PASSWORD" | docker login --username "$USERNAME" gitea.jrzylab.xyz --password-stdin
+#     - cd frontend/
+#     - VERSION=`cat VERSION`
+#     - docker tag gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark-manager-ui:"$VERSION"-dev gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark-manager-ui:"$VERSION"
+#     - docker push gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark-manager-ui:"$VERSION"
+
+# volumes:
+# - name: dockersock
+#   host:
+#     path: /var/run/docker.sock
+
+# trigger:
+#   branch:
+#     - master
+#   event:
+#     - pull_request
