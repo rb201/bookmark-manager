@@ -35,7 +35,7 @@ steps:
       from_secret: GITEA_PASSWORD
   commands:
     - echo "$PASSWORD" | docker login --username "$USERNAME" gitea.jrzylab.xyz --password-stdin
-    - cd frontend/weather-app/
+    - cd frontend/
     - VERSION=`cat VERSION`
     - docker build -t gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark-manager-ui:"$VERSION"-dev .
     - docker tag gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark-manager-ui:"$VERSION"-dev gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark-manager-ui:latest-dev
