@@ -83,7 +83,7 @@ volumes:
 
 trigger:
   branch:
-    - development
+    - main
   event:
     - push
     - custom
