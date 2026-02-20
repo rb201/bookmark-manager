@@ -5,3 +5,5 @@
 package-lock.json
 
 infra/database/db/18
+
+.vscode
