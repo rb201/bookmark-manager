@@ -1,10 +1,8 @@
 import express from 'express';
-import cors from 'cors';
 import { query } from './db/index.js';
 
 const app = express()
 app.use(express.json())
-// app.use(cors()) // tmp
 
 const port = 3001
 
