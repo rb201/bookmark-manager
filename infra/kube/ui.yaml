@@ -1,0 +1,47 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookmark_manager_ui
+spec:
+  selector:
+    matchLabels:
+      app: bookmark_manager
+      tier: ui
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: bookmark_manager
+        tier: ui
+    spec:
+      containers:
+        - name: bookmark_manager_ui
+          image: gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark_manager_app-frontend
+          ports:
+            - containerPort: 80
+              name: ui-port
+          resources:
+            requests:
+              memory: 256Mi
+              cpu: 250m
+            limits:
+              memory: 512Mi
+              cpu: 500m
+      nodeSelector:
+        node-role.kubernetes.io/worker: "true"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bookmark_manager_ui
+spec:
+  selector:
+    app: bookmark_manager
+    tier: ui
+  ports:
+    - name: entry
+      protocol: TCP
+      port: 8080
+      targetPort: ui-port

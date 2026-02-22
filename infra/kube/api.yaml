@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookmark_manager_backend
+spec:
+  selector:
+    matchLabels:
+      app: bookmark_manager
+      tier: api
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: bookmark_manager
+        tier: backend
+    spec:
+      containers:
+        - name: bookmark_manager_api
+          image: gitea.jrzylab.xyz/ramon/bookmark-manager/bookmark_manager_app-api
+          ports:
+            - containerPort: 3001
+              name: api-port
+          env:
+            - name: POSTGRES_HOST
+              key: bookmark_manager_db
+          resources:
+            requests:
+              memory: 256Mi
+              cpu: 250m
+            limits:
+              memory: 512Mi
+              cpu: 500m
+          # volumeMounts:
+          #   - name: sqlitedb
+          #     mountPath: /data
+      imagePullSecrets:
+        - name: registry-login
+      nodeSelector:
+        node-role.kubernetes.io/worker: "true"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bookmark_manager_api
+spec:
+  selector:
+    app: bookmark_manager
+    tier: api
+  ports:
+    - name: entry
+      protocol: TCP
+      port: 3001
+      targetPort: api-port
