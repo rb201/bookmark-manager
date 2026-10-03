@@ -1,3 +1,11 @@
+The idea of this project was born out of wanting to learn vanilla javascript - no frameworks, specifically in DOM. I found this project on a website - it was just an image of what the frontend looked like. So that become my reference point
+
+Below is a cut/paste of the project that I also used as a refernce for feature development
+
+I don't think I intended to go beyond the frontend, but at some point near the end of my working on this project, I become more interested in the backend, including moving away from json-server.
+
+---
+
 Your challenge is to build out this bookmark manager app and get it looking as close to the design as possible.
 
 You can use any tools you like to help you complete the challenge. So, if you have something you'd like to practice, feel free to give it a try.
@@ -29,41 +37,9 @@ Your users should be able to:
 Ideas to test yourself
 
 - Build as a full-stack app with user authentication to persist bookmarks across devices
-- Integrate an image hosting service (like Cloudinary) to store user avatars and bookmark favicons
 - Automatically fetch website metadata (favicon, title, description) when adding a bookmark URL
 - Create a browser extension that lets users save bookmarks directly from any webpage
 - Implement duplicate detection to prevent saving the same URL multiple times
 - Add keyboard shortcuts for quick actions (add bookmark, search, navigate)
-- Add progressive web app (PWA) capabilities for mobile installation and offline access
 
 
-~~~~~~~~~~~~~~~~~~~~~
-
-Front-end Style Guide
-Layout
-
-The designs were created to the following widths:
-
-    Mobile: 375px
-    Desktop: 1440px
-
-Colors
-Primary
-
-    Soft Blue: hsl(231, 69%, 60%)
-    Soft Red: hsl(0, 94%, 66%)
-
-Neutral
-
-    Grayish Blue: hsl(229, 8%, 60%)
-    Very Dark Blue: hsl(229, 31%, 21%)
-
-Typography
-Body Copy
-
-    Font size: 18px
-
-Fonts
-
-    Family: Rubik
-    Weights: 400, 500
